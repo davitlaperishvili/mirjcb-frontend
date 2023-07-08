@@ -1,0 +1,101 @@
+<footer>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(67049536, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/67049536" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	{# <div class="footerbefore">
+		<div class="container">
+			{{ footerbefore }}
+		</div>
+	</div> #}
+	<div id="footer" class="container">
+    	<div class="row">
+      		<div class="footer-blocks">
+				<div class="col-sm-6 column footerleft">
+					{{ footerleft }}
+				</div>
+	  
+		  		{% if informations %}
+				  	<div id="info" class="col-sm-3 column">
+						<p class='footer-title'>{{ text_information }}</p>
+						<ul class="list-unstyled">
+							{% for information in informations %}
+							<li><a href="{{ information.href }}">{{ information.title }}</a></li>
+							{% endfor %}
+							<li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+						</ul>
+				  	</div>
+			  	{% endif %}
+			   
+			  	<div id="extra-link" class="col-sm-3 column">
+					<p class="footer-title">{{ text_extra }}</p>
+					<ul class="list-unstyled">
+					  	<li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+					  	<li><a href="{{ contact }}">{{ text_contact }}</a></li>	  
+					</ul>
+			  	</div>
+			  
+			  
+			  	{# <div class="col-sm-6 column">
+				 
+			  	</div> #}
+			  	<div class="col-sm-4 column footerright ">
+					 <p class="footer-title">Реквизиты</p>
+					<ul class="list-unstyled">
+					  	<li>Название компании: ООО “СПЕЦТЕХМИР“</li>
+						<li>ИНН: 2312293370</li>
+						<li>КПП: 231201001</li>
+						<li>ОГРН: 1202300036124</li>
+						<li>Р/с: 40702810909500010959</li>
+						<li>БИК: 044525999</li>
+						<li>Корр.счет: 3010181084525000099</li>
+						<li>Юридический адрес: г. Краснодар, ул. Бородинская, дом. 154/12, офис. 7</li>
+						<li>Почтовый адрес: Краснодар, ул. Бородинская, дом. 154/12, офис. 7</li>
+					</ul>
+				</div>
+    		</div>
+   		</div>
+    </div>
+
+	<div id="bottom-footer" class="bottomfooter">
+    	<div class="container">
+    		<div class="footer-inner">
+				<div class="row">
+					 {#<ul class="list-unstyled">
+						<li><a href="{{ special }}">{{ text_special }}</a></li>
+						<li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+						<li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+						<li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+						<li><a href="{{ return }}">{{ text_return }}</a></li>
+						<li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+						<li class="contact"><a href="{{ contact }}">{{ text_contact }}</a></li>
+					</ul> #}
+					<p id="powered"> 2019 - 2021 © ООО “СПЕЦТЕХМИР”. ВСЕ ДАННЫЕ, ПРЕДСТАВЛЕННЫЕ НА САЙТЕ, НОСЯТ СУГУБО ИНФОРМАЦИОННЫЙ ХАРАКТЕР И НЕ ЯВЯЛЯЮТСЯ ИСЧЕРПЫВАЮЩИМИ. ДЛЯ БОЛЕЕ ПОДРОБНОЙ ИНФОРМАЦИИ СЛЕДУЕТ ОБРАЩАТЬСЯ К МЕНЕДЖЕРАМ КОМПАНИИ ПО УКАЗАННЫМ НА САЙТЕ ТЕЛЕФОНАМ. ВСЯ ПРЕДСТАВЛЕННАЯ НА САЙТЕ ИНФОРМАЦИЯ, КАСАЮЩАЯСЯ КОМПЛЕКТАЦИИ, ТЕХНИЧЕСКИХ ХАРАКТЕРИСТИК, ЦВЕТОВЫХ СОЧЕТАНИЙ, А ТАКЖЕ СТОИМОСТИ ПРОДУКЦИИ НОСИТ ИНФОРМАЦИОННЫЙ ХАРАКТЕР И НИ ПРИ КАКИХ УСЛОВИЯХ НЕ ЯВЛЯЕТСЯ ПУБЛИЧНОЙ ОФЕРТОЙ, ОПРЕДЕЛЯЕМОЙ ПОЛОЖЕНИЯМИ ПУНКТА 2 СТАТЬИ 437 ГРАЖДАНСКОГО КОДЕКСА РОССИЙСКОЙ ФЕДЕРАЦИИ. УКАЗАННЫЕ ЦЕНЫ ЯВЛЯЮТСЯ РЕКОМЕНДОВАННЫМИ И МОГУТ ОТЛИЧАТЬСЯ ОТ ДЕЙСТВИТЕЛЬНЫХ ЦЕН.</p>
+					{# <p id="powered" class="powered">{{ powered }}</p> #}
+					{#{{ footerbottom }}#}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//--> 
+<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+</body></html>

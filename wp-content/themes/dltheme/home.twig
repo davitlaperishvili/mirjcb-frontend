@@ -1,0 +1,64 @@
+{{ header }}
+<div class="content-top">
+	{{ content_top }}
+</div>
+
+<div class="row home_row">
+	{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_bottom }}</div>
+    {{ column_right }}
+</div>
+
+<span class="testimonial_default_width" style="display: none; visibility: hidden;"></span>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#ourcategory-carousel').owlCarousel({
+            items: 3,
+            singleItem: false,
+            navigation: false,
+            pagination: true,
+            autoPlay: true,
+            itemsDesktop : [1199,3], 
+            itemsDesktopSmall : [991,2],
+            itemsTablet : [650,1],
+            itemsMobile : [480,1] 
+        });
+
+        $('#testimonial-carousel').owlCarousel({
+            singleItem: true,
+            navigation: false,
+            pagination: true
+            {#autoPlay: true#}
+        }); 
+        
+        $('.brand-carousel').owlCarousel({
+            items: 5,
+            itemsDesktop : [1199,4], 
+            itemsDesktopSmall : [991,3], 
+            itemsTablet: [480,2], 
+            itemsMobile : [320,1],
+            singleItem: false,
+            navigation: false,
+            pagination: false,
+            autoPlay: true         
+        });
+		// Custom Navigation Events
+		$(".brand-next").click(function(){
+			$('.brand-carousel').trigger('owl.next');
+		})
+		$(".brand-prev").click(function(){
+			$('.brand-carousel').trigger('owl.prev');
+		});
+		
+    }); 
+</script>
+
+{{ footer }}

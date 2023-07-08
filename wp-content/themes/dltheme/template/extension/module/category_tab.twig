@@ -1,0 +1,118 @@
+<div class="hometab box">
+	<div class="container">
+		<div class="tab-head">
+			<div class="hometab-heading box-heading">{{ heading_title }}</div>
+
+			<div id="categorytabs" class="htabs">
+				<ul class="etabs">
+					{% for category in categories %}
+						<li class="tab"><a href="#categorytab-{{ category.category_id }}" data-toggle="tab">{{ category.category_name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+ 		
+		{% set category_cnt = 0 %}
+		{% for category in categories %}
+			<div id="categorytab-{{ category.category_id }}" class="tab-content">
+				<div class="box">
+					<div class="box-content">					
+						{% set sliderFor = 5 %}
+						{% set productCount = category.products|length %}
+						
+						{% if productCount >= sliderFor %}
+							<div class="customNavigation">
+								<a class="fa prev fa-arrow-left">&nbsp;</a>
+								<a class="fa next fa-arrow-right">&nbsp;</a>
+							</div>	
+						{% endif %}
+					
+						<div class="box-product {% if productCount >= sliderFor %}product-carousel{% else %} productbox-grid{% endif %}" 
+							id="{% if productCount >= sliderFor %}tabcategory{{ category_cnt }}-carousel{% else %}tabcategory{{ category_cnt }}-grid{% endif %}">
+						 
+							{% for product in category.products %}
+								<div class="{% if productCount >= sliderFor %}slider-item{% else %}product-items{% endif %}">
+									<div class="product-block product-thumb">
+										<div class="product-block-inner">
+											<div class="image">
+												{% if product.thumb_swap %}
+													<a href="{{ product.href }}">
+														<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive"/>
+														<img class="img-responsive hover-image" src="{{ product.thumb_swap }}" title="{{ product.name }}" alt="{{ product.name }}"/>
+													</a>
+												{% else %}
+													<a href="{{ product.href }}">
+														<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive"/>
+													</a>
+												{% endif %}
+												
+												{% if not product.special %}        
+												{% else %}
+													<span class="saleicon sale">Скидка</span>    
+												{% endif %}
+												
+												{% if product.special %}        
+													<div class="percentsaving"> -{{ product.percentsaving }}%</div>
+												{% endif %}
+												
+												<div class="button-group">
+													<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">
+														<i class="fa fa-eye" aria-hidden="true"></i></a></div>
+													<button type="button" data-toggle="tooltip" title="{{ button_cart }}" class="addtocart" onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span></button>
+												</div>
+												
+											</div>
+										
+											 <div class="product-details">
+												<div class="caption">
+												
+												<p class="bold-title"><a href="{{ product.href }} ">{{ product.name }} </a></p>
+												<p>Артикул: {{product.sku}}</p>
+
+													{# <p class="desc">{{ product.description }}</p> #}
+													
+													{% if product.price %}
+														<p class="price">
+														{% if not product.special %}
+														{{ product.price }}
+														{% else %}
+														<span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+														{% endif %}
+														{% if product.tax %}
+														<span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+														{% endif %}
+														</p>
+													{% endif %}
+												<button type="button" class="addcart" data-toggle="tooltip" title="{{ button_cart }} " onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span> </button>
+												</div>
+											 </div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			   
+			    {% if productCount < sliderFor %}
+					<div class="cz-status">
+					<i class="fa fa-frown-o"></i>
+					{{ text_no_products }}
+					</div>
+					<div class="viewmore">
+					<a href="{{ category.category_href }}" class="btn btn-primary">{{ text_view_more }}</a>
+					</div>
+				{% endif %}
+
+				
+				<span class="tabcategory{{ category_cnt }}_default_width" style="display:none; visibility:hidden"></span> 
+				{% set category_cnt =  category_cnt + 1 %} 
+			
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('#categorytabs a').tabs();
+</script> 

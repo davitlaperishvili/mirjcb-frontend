@@ -1,0 +1,112 @@
+<div class="box special">
+<div class="container">
+	<div class="box-head">
+		<div class="box-heading">{{ heading_title }}</div>
+	<div id="offerclock">
+		<div class="time">
+			<span class="day count" id="day">910</span>
+			<span class="offertext">Days</span>
+		</div>
+		<div class="time">
+			<span class="count" id="hour">2</span>
+			<span class="offertext">Hours</span>
+		</div>
+		<div class="time">
+			<span class="minute count" id="minute">43</span>
+			<span class="offertext">Mins</span>
+		</div>
+		<div class="time">
+			<span class="second count" id="second">29</span>
+			<span class="offertext">Secs</span>
+		</div>
+	</div>
+	</div>
+  	<div class="box-content">
+		{% set sliderFor = 5 %}
+		{% set productCount = products|length %}
+		{% if productCount >= sliderFor %}
+			<div class="customNavigation">
+				<a class="fa prev fa-arrow-left">&nbsp;</a>
+				<a class="fa next fa-arrow-right">&nbsp;</a>
+			</div>	
+		{% endif %}
+	
+		<div class="box-product {% if productCount >= sliderFor %}product-carousel{% else %} productbox-grid{% endif %}" id="{% if productCount >= sliderFor %}special-carousel{% else %}special-grid{% endif %}">
+  		{% for product in products %}
+	  	<div class="{% if productCount >= sliderFor %}slider-item{% else %}product-items{% endif %}">
+			<div class="product-block product-thumb transition">
+		  		<div class="product-block-inner">
+					<div class="image">
+						{% if product.thumb_swap %}
+						<a href="{{ product.href }}">
+							<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive reg-image"/>
+							<img class="img-responsive hover-image" src="{{ product.thumb_swap }}" title="{{ product.name }}" alt="{{ product.name }}"/>
+						</a>
+						{% else %}
+						<a href="{{ product.href }}">
+							<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive"/></a>
+						{% endif %}
+						
+						{% if not product.special %}        
+						{% else %}   
+						<span class="saleicon sale">Скидка</span>  
+						{% endif %}
+						
+						{% if product.special %}        
+							<div class="percentsaving">{{ product.percentsaving }}% off</div>
+						{% endif %}
+													
+						<div class="button-group">
+							<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">
+								<i class="fa fa-eye" aria-hidden="true"></i></a></div>
+							<button class="compare" type="button" data-toggle="tooltip" title="{{ button_compare }} " onclick="compare.add('{{ product.product_id }} ');"><i class="fa fa-exchange"></i></button>
+							<button type="button" class="addtocart" data-toggle="tooltip" title="{{ button_cart }} " onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span> </button>
+						</div>
+					</div>
+				
+					<div class="product-details">
+						<div class="caption">
+						
+
+							<div class="rating">
+								 {% for i in 1..5 %}
+								 {% if product.rating < i %}
+								 <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+								 {% else %}
+								 <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+								 {% endif %}
+								 {% endfor %}
+							</div>
+							
+							
+							<h4><a href="{{ product.href }} ">{{ product.name }} </a></h4>
+							
+							{# <p class="desc">{{ product.description }}</p> #}
+													
+							{% if product.price %}
+								<p class="price">
+								{% if not product.special %}
+								{{ product.price }}
+								{% else %}
+								<span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+								{% endif %}
+								{% if product.tax %}
+								<span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+								{% endif %}
+								</p>
+							{% endif %}
+							
+							
+							<button type="button" class="addtocart" onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span> </button>
+							
+						</div>	
+					</div>
+  				</div>
+			</div>
+		</div>
+	 	{% endfor %}
+		</div>
+	 </div>
+</div>
+</div>
+<span class="special_default_width" style="display:none; visibility:hidden"></span>

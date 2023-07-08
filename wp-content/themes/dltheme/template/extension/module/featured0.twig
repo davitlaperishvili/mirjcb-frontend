@@ -1,0 +1,113 @@
+<div class="box featured">
+	<div class="container">
+		<div class="feature-wrapper">
+			<div class="box-head">
+				<div class="box-heading">{{ heading_title }}</div>
+			</div>
+			
+			<div class="box-content">
+				{% set sliderFor = 7 %}
+				{% set productCount = products|length %}
+				{% if productCount >= 5 %}
+					<div class="customNavigation">
+						<a class="fa prev fa-arrow-left czfeature_prev">&nbsp;</a>
+						<a class="fa next fa-arrow-right czfeature_next">&nbsp;</a>
+					</div>	
+				{% endif %}
+			
+				<div class="box-product owl-carousel czfeature-carousel" id="featured-carousel">
+					{% for product in products %}
+						{% if loop.index % 2 == 1 %} 	
+							<li class="double-slideitem product-items product-block">
+								<ul>
+								   {% endif %}
+									<div class=" product-thumb transition">
+										
+										<div class="product-block-inner">
+											<div class="image">
+												{% if product.thumb_swap %}
+												<a href="{{ product.href }}">
+													<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive reg-image"/>
+													<img class="img-responsive hover-image" src="{{ product.thumb_swap }}" title="{{ product.name }}" alt="{{ product.name }}"/>
+												</a>
+												{% else %}
+												<a href="{{ product.href }}">
+													<img src="{{ product.thumb }}" title="{{ product.name }}" alt="{{ product.name }}" class="img-responsive"/>
+												</a>
+												{% endif %}
+												
+												{% if not product.special %}        
+												{% else %}   
+												<span class="saleicon sale">Скидка</span>  
+												{% endif %}
+												
+												{% if product.special %}        
+													<div class="percentsaving"> -{{ product.percentsaving }}%</div>
+												{% endif %}				
+											</div>
+								
+											<div class="product-details">
+												<div class="caption">
+															
+													{# <p class="desc">{{ product.description }}</p> #}
+													
+													<p class="bold-title"><a href="{{ product.href }} ">{{ product.name }} </a></p>
+													<p>Артикул: {{product.sku}}</p>
+													{% if product.price %}
+														<p class="price">
+														{% if not product.special %}
+														{{ product.price }}
+														{% else %}
+														<span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+														{% endif %}
+														{% if product.tax %}
+														<span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+														{% endif %}
+														</p>
+													{% endif %}
+													<button type="button" class="addcart" data-toggle="tooltip" title="{{ button_cart }} " onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span> </button>
+													<div class="button-group">
+															<div class="quickview-button" data-toggle="tooltip" title="{{ quick_view }}"> <a class="quickbox" href="{{ product.quick }}">
+																<i class="fa fa-eye" aria-hidden="true"></i></a></div>
+															<button type="button" class="addtocart" data-toggle="tooltip" title="{{ button_cart }} " onclick="cart.add('{{ product.product_id }} ');"><span>{{ button_cart }}</span> </button>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									{% if loop.index % 2 != 1 %} 	
+								</ul>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			
+		</div>
+		<div class="featured-right"></div>
+	</div>
+</div>
+
+<script type="text/javascript"><!--
+
+$(document).ready(function(){
+	$('#featured-carousel').owlCarousel({
+		items: 3,
+		singleItem: false,
+		navigation: false,
+		pagination: false,
+		itemsDesktop : [1199,2],
+		itemsDesktopSmall :	[991,2],
+		itemsTablet :	[650,1],
+		itemsMobile : [319,1]
+	});
+	// Custom Navigation Events
+	$(".czfeature_next").click(function(){
+		$('#featured-carousel').trigger('owl.next');
+	})
+	$(".czfeature_prev").click(function(){
+		$('#featured-carousel').trigger('owl.prev');
+	});	
+});	
+--></script>

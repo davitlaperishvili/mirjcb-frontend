@@ -1,0 +1,444 @@
+{% if mitems %} 
+{% if wrapper_class %}<div class="{{ wrapper_class }}">{% endif %}
+{% if bootstrap_container %}<div class="container-fluid">{% endif %}
+<nav id="supermenu" class="{{ skin }} superbig col-md-12">
+
+	<a class="mobile-trigger">МЕНЮ
+	<span class="mt-bars"><span></span><span></span><span></span></span></a>
+	{% set sep = 0 %} 
+	<ul class="col-md-10">
+		
+		<div class="mobile-top-menu" style="display:none;">
+		
+			<div class="mobile-top-menu__catalog-left-button">
+
+			</div>
+
+			<div class="mobile-top-menu__menu-or-catalog">
+				<span class="menu-tt">МЕНЮ</span>
+				<span style="display:none" class="cat-tt">КАТАЛОГ ТОВАРОВ</span>
+			</div>
+
+			<div class="mobile-top-menu__trigger">
+				<a class="mobile-trigger">
+				<span class="mt-bars">
+					<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8.76009 1.3646C8.8351 1.292 8.89494 1.20514 8.93613 1.10908C8.97731 1.01303 8.99901 0.909714 8.99997 0.805158C9.00092 0.700602 8.98111 0.596902 8.94168 0.50011C8.90226 0.403317 8.84402 0.31537 8.77035 0.2414C8.69668 0.16743 8.60906 0.108918 8.51261 0.0692787C8.41616 0.0296396 8.3128 0.00966703 8.20857 0.010526C8.10434 0.0113849 8.00133 0.0330583 7.90554 0.0742817C7.80975 0.115505 7.7231 0.175453 7.65065 0.250627L4.50444 3.40567L1.35928 0.250627C1.28742 0.173261 1.20076 0.111208 1.10447 0.0681693C1.00818 0.0251306 0.90423 0.00198805 0.79883 0.000122548C0.69343 -0.00174295 0.588735 0.0177069 0.490991 0.0573113C0.393247 0.0969157 0.304457 0.155864 0.229916 0.230638C0.155376 0.305413 0.0966123 0.394482 0.0571319 0.492533C0.0176514 0.590584 -0.00173749 0.695608 0.000122164 0.801339C0.00198182 0.90707 0.0250519 1.01134 0.0679559 1.10793C0.11086 1.20453 0.172719 1.29146 0.249842 1.36355L3.39291 4.51964L0.247749 7.67468C0.10909 7.82396 0.0336026 8.02139 0.0371907 8.22539C0.0407788 8.4294 0.123162 8.62404 0.266985 8.76831C0.410807 8.91259 0.604839 8.99523 0.808202 8.99883C1.01157 9.00243 1.20838 8.9267 1.35719 8.78761L4.50444 5.63257L7.64961 8.78866C7.79841 8.92775 7.99523 9.00348 8.19859 8.99988C8.40196 8.99628 8.59599 8.91364 8.73981 8.76936C8.88363 8.62509 8.96602 8.43045 8.9696 8.22644C8.97319 8.02244 8.89771 7.82501 8.75905 7.67573L5.61598 4.51964L8.76009 1.3646Z" fill="#555555"/>
+					</svg>
+				</a>
+			</div>
+
+		</div>
+
+
+		{% if tophomelink == 'dark' and skin != "imgmenu" %} 
+			<li class="tlli hometlli"><a href="" class="tll tllhome">&nbsp;</a></li>
+			{% set sep = 1 %}
+		{% elseif tophomelink == 'light' and skin != "imgmenu" %} 
+			<li class="tlli hometlli"><a href="" class="tll tllhomel">&nbsp;</a></li>
+			{% set sep = 1 %}
+		{% endif %} 
+		{% for mitem in mitems %} 
+			{% if sep and skin != "imgmenu" %}<li class="tlli sep"><span class="item-sep">&nbsp;</span></li>{% endif %}{% set sep = sep + 1 %}
+			<li class="tlli{% if mitem.children %} mkids{% endif %}{% if mitem.cssid == 'login_drop' %} mkids lad{% endif %}{% if mitem.tlstyle %} {{ mitem.tlstyle }}{% endif %}">
+			  {% if mitem.children  or  mitem.cssid  ==  'login_drop'  or (mitem.chtml  and  mitem.chtml  ==  1) %} 
+				<a class="superdropper" href="#">
+				
+				<span>
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.20594 13.5881L0 12.3822L5.58811 6.79406L0 1.20594L1.20594 0L8 6.79406L1.20594 13.5881Z" fill="#555555"/>
+					</svg>
+				</span>
+				<span>
+					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M6.79406 13.5881L0 6.79406L6.79406 0L8 1.20594L2.41189 6.79406L8 12.3822L6.79406 13.5881Z" fill="#555555"/>
+					</svg>
+				</span></a>
+
+
+			  {% endif %} 
+				<a class="tll" {% if mitem.tlcolor %}style="color: {{ mitem.tlcolor }};"{% endif %} {% if mitem.href and not ((mitem.children  or (mitem.chtml  and  mitem.chtml  ==  1))  and  linkoftopitem  != 'topitem') %} href="{{ mitem.href }}"{% if mitem.tntab %} target="_blank"{% endif %}{% endif %}>{{ mitem.item_topimg ? '<img src="'~mitem.item_topimg~'" alt="'~mitem.name~'" /><br />' : '' }} 
+				
+				<span class="cat-mob" style="display:none">
+				<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 8.27273H4.72727V13H0V8.27273ZM8.27273 8.27273H13V13H8.27273V8.27273ZM0 0H4.72727V4.72727H0V0ZM8.27273 0H13V4.72727H8.27273V0Z" fill="#FC9500"/>
+				</svg>
+				Каталог товаров</span> <span>{{ mitem.name }}<span></a>
+
+
+				{% if mitem.children and (mitem.view == 'f0' or mitem.view == 'f1') %} 
+					<div class="bigdiv withflyout{% if mitem.mfly %} smallflyout{% endif %}{% if mitem.mflyl %} flytoleft{% endif %}" {% if mitem.dwidth %}style="width: {{ mitem.dwidth }}px;"{% endif %}>
+						{% if dropdowntitle %} 
+							<div class="headingoftopitem">
+								{% if mitem.href and linkoftopitem == 'heading' %} 
+									<h2><a href="{{ mitem.href }}"{% if mitem.tntab %} target="_blank"{% endif %}>{{ mitem.name }}</a></h2>
+								{% else %} 
+									<h2>{{ mitem.name }}</h2>
+								{% endif %} 
+							</div>
+						{% endif %} 
+						{% for mildren in mitem.children %} 
+							<div class="withchildfo {% if mildren.gchildren %}hasflyout{% endif %}">
+							  	{% if mildren.gchildren %}<a class="superdropper" href="#"><span>+</span><span>-</span></a>{% endif %} 
+								<a class="theparent" href="{{ mildren.href }}">{{ mildren.name }}</a>
+								{% if mildren.gchildren %} 
+									<div class="flyouttoright">
+										<div class="inflyouttoright" {{ flyout_width ? 'style="width: '~flyout_width~'px"' : '' }}>
+											{% if mitem.view  ==  'f0' %} 
+												{% for gmildren in mildren.gchildren %} 
+													<div class="withchild" {% if mitem.iwidth %}style="width: {{ mitem.iwidth }}px;"{% endif %}>
+														<a class="theparent" href="{{ gmildren.href }}">{{ gmildren.name }}</a>
+														{% if gmildren.ggchildren %} 
+															<span class="mainexpand"></span>
+															<ul class="child-level">
+																{% for ggmildren in gmildren.ggchildren %} 
+																	<li><a href="{{ ggmildren.href }}">{{ ggmildren.name }}</a></li>
+																{% endfor %} 
+															</ul>
+														{% endif %} 
+													</div>
+												{% endfor %} 
+											 {% else %} 
+												{% for gmildren in mildren.gchildren %} 
+													<div class="withimage" {% if mitem.iwidth %}style="width: {{ mitem.iwidth }}px;"{% endif %}>
+														<div class="image">
+															<a href="{{ gmildren.href }}">
+																<img src="{{ gmildren.thumb }}" alt="{{ gmildren.name }}" title="{{ gmildren.name }}" />
+															</a>
+														</div>
+														<div class="name">
+															<a href="{{ gmildren.href }}">{{ gmildren.name }}</a>
+															{% if gmildren.ggchildren %}  
+																<span class="mainexpand"></span>
+																<ul class="child-level">
+																	{% for ggmildren in gmildren.ggchildren %} 
+																		<li><a href="{{ ggmildren.href }}">+ {{ ggmildren.name }}</a></li>
+																	{% endfor %}
+																</ul>
+															{% endif %}  
+														</div>
+														{% if gmildren.price %} 
+															<div class="dropprice">
+																{% if not gmildren.special %} 
+																	{{ gmildren.price }}
+																{% else %} 
+																	<span>{{ gmildren.price }}</span> {{ gmildren.special }}
+																{% endif %} 
+															</div>
+														{% endif %} 
+													</div>
+												{% endfor %}
+											{% endif %}
+										</div>
+									</div>
+								{% endif %} 
+							</div>
+						{% endfor %}
+						{% if mitem.href and linkoftopitem == 'bottom' %} 
+							<div class="linkoftopitem">
+								<a href="{{ mitem.href }}"{% if mitem.tntab %} target="_blank"{% endif %}>{{ viewalltext }} {{ mitem.name }}</a>
+							</div>
+						{% endif %} 
+					</div>
+				{% endif %}
+				{% if (mitem.children or (mitem.chtml and mitem.chtml == 1)) and (mitem.view != 'f0' and mitem.view != 'f1') or mitem.cssid == 'login_drop' %} 
+					<div class="bigdiv {% if mitem.cssid == 'login_drop' and not mitem.dwidth %}withflyout andlogin{% endif %}" {% if mitem.dwidth %}data-width="{{ mitem.dwidth }}" style="width: {{ mitem.dwidth }}px;"{% endif %}>
+						{% if dropdowntitle %} 
+							<div class="headingoftopitem">
+								{% if mitem.href  and  linkoftopitem  ==  'heading' %} 
+									<h2><a href="{{ mitem.href }}"{% if mitem.tntab %} target="_blank"{% endif %}>{{ mitem.name }}</a></h2>
+								{% else %} 
+									<h2>{{ mitem.name }}</h2>
+								{% endif %} 
+							</div>
+						{% endif %} 
+					
+						{% if mitem.add or (mitem.chtml and mitem.chtml == 2) %} 
+							<div class="menu-add" {% if bspace_width %}style="width: {{ bspace_width }}px;"{% endif %}>
+								{% if mitem.chtml and mitem.chtml == 2 %} 
+									{{ mitem.cchtml }}
+								{% else %} 
+									<a {% if mitem.addurl %}href="{{ mitem.addurl }}"{% endif %}><img src="image/{{ mitem.add }}" alt="{{ mitem.name }}" /></a>
+								{% endif %} 
+							</div>
+						{% endif %} 
+						 
+						{% if mitem.fbrands %} 
+							<div class="dropbrands">
+								<span>{{ brands_text }}</span>
+								<ul>
+									{% for dropbrand in mitem.fbrands %} 
+										<li><a href="{{ dropbrand.href }}">{{ dropbrand.name }}</a></li>
+									{% endfor %} 
+								</ul>
+							</div>
+						{% endif %}
+						{% set smlmarg = direction == 'rtl' ? 'left' : 'right' %}
+						<div class="supermenu-left" {% if mitem.add or (mitem.chtml and mitem.chtml == 2) %}{% if mitem.fbrands %}{% if bspace_width %}{% set slmarg =  bspace_width + 180 %}style="margin-{{ smlmarg }}: {{ slmarg }}px"{% else %}style="margin-{{ smlmarg }}: 380px"{% endif %}{% else %}{% if bspace_width %}{% set slmarg = bspace_width + 10 %}style="margin-{{ smlmarg }}: {{ slmarg }}px"{% else %}style="margin-{{ smlmarg }}: 330px"{% endif %}{% endif %}{% elseif mitem.fbrands and not (mitem.add or (mitem.chtml and mitem.chtml == 2)) %} style="margin-{{ smlmarg }}: 170px"{% endif %}>
+
+							{% if mitem.chtml and mitem.chtml == 1 %} {{ mitem.cchtml }}{% endif %} 
+	 
+							{% if mitem.chtml and mitem.chtml == 3 %} <div>{{ mitem.cchtml }}</div>{% endif %} 
+							
+							{% if mitem.cssid == 'login_drop' %} 
+								{% if logged %} 
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ edit }}">{{ text_edit }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ password }}">{{ text_password }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ address }}">{{ text_address }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ wishlist }}">{{ text_wishlist }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ order }}">{{ text_order }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ download }}">{{ text_download }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ return }}">{{ text_return }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ transaction }}">{{ text_transaction }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ newsletter }}">{{ text_newsletter }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ recurring }}">{{ text_recurring }}</a></div>
+									<div class="withchild"{% if mitem.iwidth %} style="width: {{ mitem.iwidth }}px;"{% endif %} ><a class="theparent" href="{{ logout }}">{{ text_logout }}</a></div>
+								{% else %} 
+									<form action="{{ actiond }}" method="post" enctype="multipart/form-data" id="sm-login">
+										<div class="addingaspace" style="clear: none;"></div>
+										{{ entry_email }}<br />
+										<input type="text" name="email" value="" />
+										<br />
+										{{ entry_password }}<br />
+										<input type="password" name="password" value="" />
+										<br />
+										<a href="{{ forgottend }}">{{ text_forgotten }}</a><br />
+										<a href="{{ registerd }}">{{ text_register }}</a><br />
+										<div class="linkoftopitem">
+											<a onclick="$('#sm-login').submit();">{{ button_login }}</a>
+							 			</div>
+									</form>
+								{% endif %} 
+							{% endif %} 
+	  
+							{% if (not mitem.chtml or mitem.chtml == 2 or mitem.chtml == 3) and mitem.cssid != 'login_drop' %} 
+								{% if not mitem.view %} 
+									{% for mildren in mitem.children %} 
+										<div class="withchild {% if mildren.gchildren %}haskids{% endif %}" {% if mitem.iwidth %}style="width: {{ mitem.iwidth }}px;"{% endif %}>
+											<a class="theparent" href="{{ mildren.href }}">{{ mildren.name }}</a>
+											{% if mildren.gchildren %} 
+												<span class="mainexpand"></span>
+												<ul class="child-level">
+													{% for gmildren in mildren.gchildren %} 
+														<li><a href="{{ gmildren.href }}">{{ gmildren.name }}</a></li>
+													{% endfor %}
+												</ul>
+											{% endif %} 
+										</div>
+									{% endfor %} 
+								{% elseif mitem.view  ==  '1' %} 
+									{% for mildren in mitem.children %} 
+										<div class="withimage" {% if mitem.iwidth %}style="width: {{ mitem.iwidth }}px;"{% endif %}>
+											<div class="image">
+												<a href="{{ mildren.href }}"><img src="{{ mildren.thumb }}" alt="{{ mildren.name }}" title="{{ mildren.name }}" /></a>
+											</div>
+											<div class="name">
+												{% if mildren.gchildren %} <span class="mainexpand"></span>{% endif %} 
+												<a class="nname" href="{{ mildren.href }}">{{ mildren.name }}</a>
+												{% if mildren.gchildren %} 
+													<ul class="child-level">
+														{% for gmildren in mildren.gchildren %} 
+															<li><a href="{{ gmildren.href }}">+ {{ gmildren.name }}</a></li>
+														{% endfor %} 
+													</ul>
+												{% endif %}
+											</div>
+											{% if mildren.price %} 
+												<div class="dropprice">
+													{% if not mildren.special %} 
+														{{ mildren.price }}
+													{% else %}   
+														<span>{{ mildren.price }}</span> {{ mildren.special }}
+													{% endif %} 
+												</div>
+											{% endif %}  
+										</div>
+									{% endfor %}
+								{% endif %}
+							{% endif %}
+						</div>
+						{% if mitem.add or (mitem.chtml and mitem.chtml == 2) %} 
+							<div class="menu-add-mobil" {% if mitem.chtml and mitem.chtml == 2 %}style="text-align:left;"{% endif %} >
+								{% if mitem.chtml and mitem.chtml == 2 %} 
+									{{ mitem.cchtml }}
+								{% else %} 
+									<a {% if mitem.addurl %}href="{{ mitem.addurl }}"{% endif %} ><img src="image/{{ mitem.add }}" alt="{{ mitem.name }}" /></a>
+								{% endif %} 
+							</div>
+						{% endif %}
+						 
+						{% if mitem.fbrands %} 
+							<div class="dropbrands dropbrands-mobil">
+								<span>{{ brands_text }}</span>
+								<ul>
+									{% for dropbrand in mitem.fbrands %} 
+										<li><a href="{{ dropbrand.href }}">{{ dropbrand.name }}</a></li>
+									{% endfor %} 
+								</ul>
+							</div>
+						{% endif %}
+						{% if mitem.href  and  linkoftopitem  ==  'bottom'  and  mitem.cssid  !=  'login_drop' %} 
+							<div class="linkoftopitem">
+								<a href="{{ mitem.href }}"{% if mitem.tntab %} target="_blank"{% endif %}>{{ viewalltext }} {{ mitem.name }}</a>
+							</div>
+						{% elseif  mitem.cssid != 'login_drop' %} 
+							<div class="addingaspace"></div>
+						{% endif %} 
+					</div>
+				{% endif %}
+			</li>
+		{% endfor %}
+
+		<div class="menu-cart-and-search-mob" style="display:none;">
+			<div class="head-right-bottom">  {{ search }} </div>
+			<div class="header-cart">{{ cart }}</div>
+			<div class="header-phone">
+				<a href="tel:+79183508808">
+					<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M13 8.99967L9.19356 8.55908L7.3734 10.3792C5.32297 9.33641 3.65636 7.66981 2.61354 5.61938L4.44092 3.792L4.00033 0H0.0205401C-0.398385 7.35286 5.64714 13.3984 13 12.9795V8.99967Z" fill="#FC9500"/>
+					</svg>
+					+7(918)350-88-08
+				</a>
+			</div>
+		</div>
+
+	</ul>
+<div class='col-md-2 visible-sm visible-md' style="
+    float: right;">
+<div class="header-cart">{{ cart }}</div>
+	<div class="head-right-bottom">  {{ search }} </div>
+</div>
+<div class='col-md-2 visible-lg' style="
+    float: right;">
+<div class="header-cart">{{ cart }}</div>
+	<div class="head-right-bottom">  {{ search }} </div>
+</div>
+
+
+
+</nav>
+
+{% if bootstrap_container %}</div>{% endif %}
+{% if wrapper_class %}</div>{% endif %}
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+{% if usehoverintent %} 
+	var setari = { 
+		{% if dropdowneffect == 'drop' %} 
+			over: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').slideDown('fast'); 
+		 		}		
+			}, 
+			out: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').slideUp('fast'); 
+		 		}
+			},
+		{% elseif dropdowneffect == 'show' %} 
+			over: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').show(); 
+		 		}
+			}, 
+			out: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').hide(); 
+		 		}
+		 	},
+		{% else %} 
+			over: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').fadeIn('fast'); 
+		 		}
+			}, 
+			out: function() { 
+		 		if ($('#supermenu').hasClass('superbig')) {
+					$(this).find('.bigdiv').fadeOut('fast'); 
+		 		}
+			},
+		{% endif %} 
+		timeout: 150
+	};
+
+	$("#supermenu ul li.tlli").hoverIntent(setari);
+
+	var setariflyout = { 
+		over: function() { 
+		  	if ($('#supermenu').hasClass('superbig')) {
+				$(this).find('.flyouttoright').show();
+		  	}
+		}, 
+		out: function() { 
+		  	if ($('#supermenu').hasClass('superbig')) {
+				$(this).find('.flyouttoright').hide();
+		  	}
+		},
+		timeout: 350
+	};
+
+	$("#supermenu ul li div.bigdiv.withflyout > .withchildfo").hoverIntent(setariflyout);
+{% else %} 
+	$("#supermenu ul li.tlli:not(.lad)").on({
+		mouseenter: function(){
+		  	if ($('#supermenu').hasClass('superbig')) {
+		 		{% if dropdowneffect == 'drop' %} 
+					$(this).find('.bigdiv').slideDown('fast');
+		 		{% elseif dropdowneffect == 'show' %} 
+		 			$(this).find('.bigdiv').show();
+		 		{% else %}   
+		 			$(this).find('.bigdiv').fadeIn('fast');
+		 		{% endif %} 
+		  	}		
+		},
+		mouseleave: function(){
+		  	if ($('#supermenu').hasClass('superbig')) {
+		   		{% if dropdowneffect == 'drop' %} 
+					$(this).find('.bigdiv').slideUp('fast');
+		   		{% elseif dropdowneffect == 'show' %} 
+		 			$(this).find('.bigdiv').hide();
+		 		{% else %}   
+		 			$(this).find('.bigdiv').fadeOut('fast');
+		 		{% endif %} 
+		  	}
+		}
+	});
+	$("#supermenu ul li.tlli.lad>a").on({
+		click: function(e){
+			e.preventDefault();
+			if ($('#supermenu').hasClass('superbig')) {
+				{% if dropdowneffect == 'drop' %}
+					$(this).parent().find('.bigdiv').slideToggle('fast');
+				{% elseif dropdowneffect == 'show' %}
+					$(this).parent().find('.bigdiv').toggle();
+				{% else %}  
+					$(this).parent().find('.bigdiv').fadeToggle('fast');
+				{% endif %}
+		  	}
+		}
+	});
+	$("#supermenu ul li div.bigdiv.withflyout > .withchildfo").on({
+		mouseenter: function(){
+		  	if ($('#supermenu').hasClass('superbig')) {
+		   		$(this).find('.flyouttoright').show();
+		  	}
+		},
+		mouseleave: function(){
+		  	if ($('#supermenu').hasClass('superbig')) {
+		   		$(this).find('.flyouttoright').hide();
+		  	}
+		}
+	});
+{% endif %}
+});
+var supermenu_width = $('#supermenu').outerWidth(false);
+if (supermenu_width < 768) {
+	$('#supermenu').removeClass('superbig');
+	$('#supermenu').addClass('respsmall');
+	$('.menu-cart-and-search-mob div#search .search_toggle div#searchbox input.form-control.input-lg').attr("placeholder", "Найти товары");
+	$("a.superdropper").on('click', function(){
+    $(".mobile-top-menu").toggleClass('_active').siblings().removeClass('_active');
+	});
+}
+</script>
+{% endif %}

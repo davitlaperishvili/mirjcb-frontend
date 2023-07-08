@@ -1,0 +1,112 @@
+<nav class="nav-container" role="navigation">
+
+<div class="nav-inner">
+<!-- ======= Menu Code START ========= -->
+{% if categories %}
+<!-- Opencart 3 level Category Menu-->
+<div id="menu" class="main-menu">
+	 {# <div class="nav-responsive"><span>Menu</span><div class="expandable"></div></div> #}
+ 
+      <ul class="nav navbar-nav">
+	   
+	   
+    	{% for category in categories %}
+        {% if category.children %}
+			<li class="top_level dropdown"><a href="{{ category.href }}">{{ category.name }}</a>
+
+			<div class="dropdown-menu megamenu column{{ category.column }}">
+            <div class="dropdown-inner">
+			  {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+				<ul class="list-unstyled childs_1">
+                {% for child in children %}
+					<!-- 2 Level Sub Categories START -->
+					{% if child.childs %}
+					  <li class="dropdown"><a href="{{ child.href }}">{{ child.name }}</a>
+
+						  <div class="dropdown-menu">
+			              <div class="dropdown-inner">
+			              {% for childs_col in child.childs|batch(child.childs|length / child.column|round(1, 'ceil')) %}
+							<ul class="list-unstyled childs_2">
+							  {% for childs_2 in childs_col %}
+								<li><a href="{{ childs_2.href }}">{{ childs_2.name }}</a></li>
+							  {% endfor %}
+							</ul>
+						  {% endfor %}
+						  </div>
+						  </div>
+
+					  </li>
+					{% else %}
+					  <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+					{% endif %}
+					<!-- 2 Level Sub Categories END -->
+                {% endfor %}
+              
+			    </ul>
+              {% endfor %}
+            </div>
+			</div>
+			</li>
+        {% else %}
+			<li class="top_level"><a href="{{ category.href }}">{{ category.name }}</a></li>
+       {% endif %}
+       {% endfor %}
+	   
+	   {#
+	   	<li class="top_level"><a href="{{ index }}">{{ text_home }}</a></li>
+	    <li class="top_level"><a href="{{ contact }}">{{ text_contact }}</a></li>
+		<li class="top_level"><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+		#}
+
+		{% if blog_enable %}
+			<li class="top_level"> <a href="{{all_blogs}}">{{ text_blog }} </a></li>       
+		{% endif %}
+		
+  </ul>  
+</div>
+{% endif %}
+
+</div>
+
+
+
+<!--  =============================================== Mobile menu start  =============================================  -->
+<div id="res-menu" class="main-menu nav-container1">
+	<div class="nav-responsive"><span>{{ text_menu }}</span><div class="expandable"></div></div>
+    <ul class="main-navigation">
+		{% for category in categories %}
+			<li class="top_level dropdown"><a href="{{ category.href }}">{{ category.name }}</a>
+			{% if category.children %}
+				{% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+				<ul>
+					{% for child in children %}
+						{% if child.childs %}
+							<li>
+								<a href="{{ child.href }}">{{ child.name }}</a>
+								{% for childs_col in child.childs|batch(child.childs|length / child.column|round(1, 'ceil')) %}
+									<ul class="list-unstyled childs_2">
+									  {% for childs_2 in childs_col %}
+										<li><a href="{{ childs_2.href }}">{{ childs_2.name }}</a></li>
+									  {% endfor %}
+									</ul>
+								  {% endfor %}
+							</li>			
+						{% else %}
+						  <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				{% endfor %}
+			{% endif %}
+			</li>
+		{% endfor %}
+		{% if blog_enable %}
+				<li> <a href="{{all_blogs}}">{{ text_blog }} </a></li>       
+		{% endif %}
+		
+	 </ul>
+  </div>
+
+ </div>
+</nav>  
+
