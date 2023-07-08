@@ -30,6 +30,7 @@
       </div>
     </div>
   </section>
+  
   <section class="benefits">
     <div class="custom_container">
       <ul class="benefit_list">
