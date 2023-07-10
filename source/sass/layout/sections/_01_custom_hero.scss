@@ -74,8 +74,12 @@
               color: $cwhite;
               background-color: $ccorp;
               border-radius: 2px;
+              transition: 0.4s;
               @media(max-width: 768px){
                 width: 100%;
+              }
+              &:hover{
+                background-color: $cblack;
               }
             }
           }

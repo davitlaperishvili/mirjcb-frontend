@@ -59,7 +59,12 @@
                 border-radius: 30px;
                 color: $cblack;
                 background-color: $ccorp;
+                border: 1px solid $ccorp;
                 font-size: 13px;
+                transition: 0.4s;
+                &:hover{
+                  background-color: $cwhite;
+                }
               }
             }
           }

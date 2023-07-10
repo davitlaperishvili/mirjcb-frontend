@@ -43,10 +43,31 @@
           margin-bottom: 14px;
           font-size: 18px;
           font-weight: 700;
+          transition: 0.4s;
+          &:hover{
+            color: $ccorp;
+          }
+          a{
+            font-size: 18px;
+            font-weight: 700;
+            transition: 0.4s;
+            color: $cblack;
+            &:hover{
+              color: $ccorp;
+            }
+          }
         }
         .value{
           font-size: 15px;
           color: $cbase;
+          transition: 0.4s;
+          a{
+            color: $cbase;
+            transition: 0.4s;
+            &:hover{
+              color: $ccorp;
+            }
+          }
         }
       }
     }

@@ -37,6 +37,10 @@
               a{
                 font-size: 14px;
                 color: $ccorp;
+                transition: 0.4s;
+                &:hover{
+                  color: $cblack;
+                }
               }
             }
           }
