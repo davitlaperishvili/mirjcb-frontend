@@ -1,6 +1,8 @@
+
+
 // Tags
 .dl_theme{
-	color: $cbase;
+	color: $cblack;
 	font-size: 14px;
 	font-family: $ffbase, sans-serif;
 	font-weight: 400;
@@ -12,6 +14,7 @@
 	-ms-text-size-adjust: 100%;
 	-ms-overflow-style: scrollbar;
 	-webkit-tap-highlight-color: rgba($cblack, 0);
+  background-color: #F6F5F5;
   a{
     color: $ccorp;
     text-decoration: none;
@@ -55,8 +58,8 @@
     }
     @media(max-width: 1024px){
       width: auto;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
   // Container
@@ -96,5 +99,84 @@
       padding: 10px 0;
       background: $ccorp;
     }
+  }
+
+  .mb-40{
+    margin-bottom: 40px;
+  }
+  .mb-60{
+    margin-bottom: 60px;
+  }
+
+  .mainShadow{
+    box-shadow: $mainShadow;
+  }
+
+  .section_title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    @media(max-width: 768px){
+      flex-wrap: wrap;
+    }
+    h2{
+      font-size: 26px;
+      font-weight: 700;
+      color: $cblack;
+      @media(max-width: 768px){
+        font-size: 20px;
+      }
+    }
+    .subtitle{
+      display: flex;
+      align-items: center;
+      color: $cbase;
+      font-size: 15px;
+      @media(max-width: 768px){
+        order: 3;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+  
+  .custom_slider_arrows{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .arrow{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #D9D9D9;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.4s;
+      &:hover{
+        background-color: $cblack;
+        color: $cwhite;
+      }
+      &.prev{
+        &:before{
+          position: relative;
+          left: -1px;
+          top: 1px;
+        }
+      }
+      &.next{
+
+        &:before{
+          position: relative;
+          left: 1px;
+          top: 1px;
+        }
+      }
+    }
+  }
+  .owl-controls{
+    display: none !important;
   }
 }

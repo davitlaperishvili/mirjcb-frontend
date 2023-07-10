@@ -1,0 +1,30 @@
+.dl_theme{
+  .custom_text{
+    .section_text{
+      h1{
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 34px;
+        @media(max-width: 768px){
+          margin-bottom: 20px;
+          font-size: 24px;
+        }
+      }
+      h2{
+        margin-bottom: 30px;
+        font-size: 26px;
+        font-weight: 700;
+        @media(max-width: 768px){
+          margin-bottom: 20px;
+          font-size: 20px;
+        }
+      }
+      p{
+        margin-bottom: 30px;
+        @media(max-width: 768px){
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

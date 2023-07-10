@@ -1,28 +1,25 @@
 {{ header }}
 
 <div class="dl_theme">
-  <section class="custom_hero">
-    <div class="custom_cntainer">
-      <figure>
-        <img src="https://mirjcb.ru/image/images/hero.jpg" alt="">
-      </figure>
+  <section class="custom_hero mb-60">
+    <figure>
+      <img src="https://mirjcb.ru/image/images/hero.jpg" alt="">
+    </figure>
+    <div class="custom_container">
       <div class="hero_content">
         <h1 class="page_title">Найдите запчасти для своей техники</h1>
         <div class="page_subtitle">По артикулу или названию</div>
         <div class="hero_search">
-          <div class="search_toggle" style="display: block;">
-            <div id="searchbox">
-              <input type="text" name="search" oninput="setSearch(this)" value="" placeholder="Поиск среди 950 тысяч артикулов с актуальными наличием и ценами" class="form-control input-lg">
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default btn-lg">Искать</button>
-              </span>
-            </div>
+          <div id="search">
+            <input type="text" name="search" oninput="setSearch(this)" value="" placeholder="Поиск среди 950 тысяч артикулов с актуальными наличием и ценами">
+            <button type="button">Искать</button>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="benefits">
+
+  <section class="benefits mb-60">
     <div class="custom_container">
       <ul class="benefit_list">
         <li class="benefit_item">
@@ -65,7 +62,7 @@
     </div>
   </section>
 
-  <section class="custom_services">
+  <section class="custom_services mb-40">
     <div class="custom_container">
       <ul class="services_list">
         <li class="service_item">
@@ -164,14 +161,14 @@
     </div>
   </section>
 
-  <section class="custom_products">
+  <section class="custom_products mb-40">
     <div class="custom_container">
       <div class="section_content">
         <div class="section_title">
           <h2>Распродажа</h2>
-          <div class="slider_arrows">
-            <div class="prev arrow"></div>
-            <div class="next arrow"></div>
+          <div class="custom_slider_arrows">
+            <div class="prev arrow fa fa-light fa-chevron-left"></div>
+            <div class="next arrow fa fa-light fa-chevron-right"></div>
           </div>
         </div>
         <div class="products_list owl-carousel">
@@ -186,7 +183,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -200,7 +197,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -214,7 +211,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -228,7 +225,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -242,7 +239,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -256,7 +253,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -270,7 +267,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -284,7 +281,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -298,7 +295,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
         </div>
@@ -306,15 +303,15 @@
     </div>
   </section>
 
-  <section class="custom_products">
+  <section class="custom_products mb-40">
     <div class="custom_container">
       <div class="section_content">
         <div class="section_title">
-          <h2>Распродажа</h2>
+          <h2>Популярные категории</h2>
           <div class="subtitle">Втулки и пальцы Ремкомплекты Фильтры Масла и смазки Запчасти ходовой части</div>
-          <div class="slider_arrows ">
-            <div class="prev arrow"></div>
-            <div class="next arrow"></div>
+          <div class="custom_slider_arrows ">
+            <div class="prev arrow fa fa-light fa-chevron-left"></div>
+            <div class="next arrow fa fa-light fa-chevron-right"></div>
           </div>
         </div>
         <div class="products_list owl-carousel">
@@ -329,7 +326,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -343,7 +340,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -357,7 +354,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -371,7 +368,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -385,7 +382,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -399,7 +396,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -413,7 +410,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -427,7 +424,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
           <div class="owl-slide">
@@ -441,7 +438,7 @@
                 <div class="new">650 ₽</div>
                 <div class="old">850 ₽</div>
               </div>
-              <div class="buy_btn">Купить</div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
             </div>
           </div>
         </div>
@@ -449,87 +446,91 @@
     </div>
   </section>
 
-  <section class="custom_blog">
+  <section class="custom_blog mb-40" >
     <div class="custom_container">
       <div class="section_title">
         <h2>Новые статьи</h2>
-        <div class="blog_list owl-carousel">
-        
-          <div class="blog_item owl-item">
-            <figure>
-              <img src="https://mirjcb.ru/image/images/blog3.png" alt="">
-            </figure>
-            <div class="blog_content">
-              <div class="blog_top">
-                <div class="time">
-                  <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
-                  <div class="date">12.06.2023</div>
-                </div>
-                <div class="read_more">Читать далее...</div>
+        <div class="custom_slider_arrows">
+          <div class="prev arrow fa fa-light fa-chevron-left"></div>
+          <div class="next arrow fa fa-light fa-chevron-right"></div>
+        </div>
+      </div>
+      <div class="blog_list owl-carousel">
+      
+        <div class="blog_item">
+          <figure>
+            <img src="https://mirjcb.ru/image/images/blog3.png" alt="">
+          </figure>
+          <div class="blog_content">
+            <div class="blog_top">
+              <div class="time">
+                <img src="https://mirjcb.ru/image/images/calendar.svg" alt="">
+                <div class="date">12.06.2023</div>
               </div>
-              <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
-              <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
+              <div class="read_more"><a href="#">Читать далее...</a></div>
             </div>
+            <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
+            <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
           </div>
-          <div class="blog_item owl-item">
-            <figure>
-              <img src="https://mirjcb.ru/image/images/blog1.png" alt="">
-            </figure>
-            <div class="blog_content">
-              <div class="blog_top">
-                <div class="time">
-                  <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
-                  <div class="date">12.06.2023</div>
-                </div>
-                <div class="read_more">Читать далее...</div>
+        </div>
+        <div class="blog_item">
+          <figure>
+            <img src="https://mirjcb.ru/image/images/blog1.png" alt="">
+          </figure>
+          <div class="blog_content">
+            <div class="blog_top">
+              <div class="time">
+                <img src="https://mirjcb.ru/image/images/calendar.svg" alt="">
+                <div class="date">12.06.2023</div>
               </div>
-              <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
-              <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
+              <div class="read_more"><a href="#">Читать далее...</a></div>
             </div>
+            <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
+            <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
           </div>
-          <div class="blog_item owl-item">
-            <figure>
-              <img src="https://mirjcb.ru/image/images/blog2.png" alt="">
-            </figure>
-            <div class="blog_content">
-              <div class="blog_top">
-                <div class="time">
-                  <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
-                  <div class="date">12.06.2023</div>
-                </div>
-                <div class="read_more">Читать далее...</div>
+        </div>
+        <div class="blog_item">
+          <figure>
+            <img src="https://mirjcb.ru/image/images/blog2.png" alt="">
+          </figure>
+          <div class="blog_content">
+            <div class="blog_top">
+              <div class="time">
+                <img src="https://mirjcb.ru/image/images/calendar.svg" alt="">
+                <div class="date">12.06.2023</div>
               </div>
-              <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
-              <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
+              <div class="read_more"><a href="#">Читать далее...</a></div>
             </div>
+            <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
+            <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
           </div>
-          <div class="blog_item owl-item">
-            <figure>
-              <img src="https://mirjcb.ru/image/images/blog3.png" alt="">
-            </figure>
-            <div class="blog_content">
-              <div class="blog_top">
-                <div class="time">
-                  <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
-                  <div class="date">12.06.2023</div>
-                </div>
-                <div class="read_more">Читать далее...</div>
+        </div>
+        <div class="blog_item">
+          <figure>
+            <img src="https://mirjcb.ru/image/images/blog3.png" alt="">
+          </figure>
+          <div class="blog_content">
+            <div class="blog_top">
+              <div class="time">
+                <img src="https://mirjcb.ru/image/images/calendar.svg" alt="">
+                <div class="date">12.06.2023</div>
               </div>
-              <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
-              <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
+              <div class="read_more"><a href="#">Читать далее...</a></div>
             </div>
+            <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
+            <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="custom_text">
+  <section class="custom_text mb-60">
     <div class="custom_container">
       <div class="section_text">
-        <h2>Запчасти JCB и расходные материалы для спецтехники</h2>
+        <h1>Запчасти JCB и расходные материалы для спецтехники</h1>
         <p>Интернет-магазин Спецтехмир поставляет запасные части для строительной, дорожной, сельскохозяйственной спецтехники JCB. В наличии всегда есть оригинальные и неоригинальные запчасти для самых ходовых моделей экскаваторов-погрузчиков JCB 3CX, 4CX.</p>
-        <h3>Ассортимент запчастей JCB</h3>
+        <h2>Ассортимент запчастей JCB</h2>
         <p>
           От качества комплектующих зависит производительность техники. Мы предлагаем всё необходимое для ремонта и сервисного обслуживания экскаватора-погрузчика 3CX, 4CX. В продаже:
 
@@ -553,7 +554,7 @@
           У нас можно заказать оригинальные комплектующие британской марки и сертифицированные аналоги от ведущих российских, турецких, китайских производителей. Запасные части стоят недорого, производятся из качественных материалов, соответствуют техническим требованиям, международным стандартам, обеспечивают высокую производительность, долгий срок службы техники.
           Мы сотрудничаем с надёжными поставщиками без посредников, поэтому гарантируем качество товаров и устанавливаем разумные цены без накрутки.
         </p>
-        <h3>Доставка запчастей по Краснодару и Краснодарскому краю  </h3>
+        <h2>Доставка запчастей по Краснодару и Краснодарскому краю  </h2>
         <p>Чтобы купить фирменные запасные части и расходные материалы для спецтехники ДжиСиБи, выбирайте позицию в каталоге и оформляйте заказ онлайн. На оригинальные и неоригинальные товары действует гарантия производителя.
         Если вы не нашли нужную деталь на сайте, позвоните нам по телефону +7 (918) 350-88-08 или +7 (861) 240-01-68. Мы подберём то, что вам требуется, по серийному номеру.
         Интернет-магазин Спецтехмир сотрудничает с транспортными компаниями, предлагая предлагаем услуги доставки по Краснодарскому краю. В Краснодаре возможен самовывоз со склада.
@@ -562,10 +563,14 @@
     </div>
   </section>
 
-  <section class="custom_brands">
+  <section class="custom_brands mb-60">
     <div class="custom_container">
       <div class="section_title">
         <h2>Бренды</h2>
+        <div class="custom_slider_arrows">
+          <div class="prev arrow fa fa-light fa-chevron-left"></div>
+          <div class="next arrow fa fa-light fa-chevron-right"></div>
+        </div>
       </div>
       <div class="brands_slider owl-carousel">
         <div class="owl-slide">
@@ -602,7 +607,7 @@
     </div>
   </section>
 
-  <section class="custom_map">
+  <section class="custom_map mb-60">
     <div class="custom_container">
       <div class="section_title">
         <h2>Как к нам добраться</h2>
@@ -619,7 +624,7 @@
       itemsDesktop : [1199,4], 
       itemsDesktopSmall : [991,3], 
       itemsTablet: [480,2], 
-      itemsMobile : [320,1],
+      itemsMobile : [320,2],
       singleItem: false,
       navigation: true,
       pagination: false,
@@ -634,19 +639,33 @@
       singleItem: false,
       navigation: true,
       pagination: false,
-      autoPlay: true         
+      autoPlay: true,   
+      margin: 15            
   });
 
   $('.products_list').owlCarousel({
     items: 5,
     itemsDesktop : [1199,4], 
     itemsDesktopSmall : [991,3], 
-    itemsTablet: [480,2], 
-    itemsMobile : [320,1],
+    itemsTablet: [480,1],
     singleItem: false,
     navigation: true,
     pagination: false,
-    autoPlay: true         
+    autoPlay: true,    
+    margin: 45     
   });
+  const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
+  customArrows.forEach( function (item) {
+    item.addEventListener("click", e => {
+      console.log("clicked")
+      const target = e.target;
+      const parent = target.closest("section");
+      if(target.classList.contains("prev")){
+        $(parent.querySelector(".owl-carousel")).trigger('owl.prev');
+      }else if(target.classList.contains("next")){
+        $(parent.querySelector(".owl-carousel")).trigger('owl.next');
+      }
+    })
+  })
 </script>
 {{ footer }}

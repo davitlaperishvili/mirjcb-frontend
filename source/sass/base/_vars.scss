@@ -2,7 +2,7 @@
 $cwhite: #fff;
 $cblack: #000;
 $cdark: #212121;
-$cbase: #353535;
+$cbase: #6C757D;
 $cmain: #777;
 $cread: #a3a3a3;
 $cgray: #ccc;
@@ -13,7 +13,9 @@ $cwarning: #f0ad4e;
 $cdanger: #d9534f;
 $csuccess: #5cb85c;
 $cform: #f8fafb;
-$ccorp: #0A2472;
+$ccorp: #F5AF00;
+
+$mainShadow: 0 3px 4px rgba($cblack, 0.05);
 
 // added 
 $cgreen: #3E8914;
@@ -45,8 +47,6 @@ $bdrp: 50%;
 /* Border radius */
 
 /* Font family */
-$ffbase: 'Poppins', sans-serif;
-$ffmain: 'Poppins', sans-serif;
-$ffremix: "remixicon";
-$ffawesome: "Font Awesome 5 Pro";
+$ffbase: 'poppins';
+$ffmain: 'poppins';
 /* Font family */

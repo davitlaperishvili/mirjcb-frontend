@@ -33,7 +33,7 @@ export const cleanPaths = (done) => {
 export function styles() {
   return (
     gulp
-      .src("source/sass/main.scss")
+      .src("source/sass/stylesheet.scss")
       .pipe(sourcemaps.init())
       .pipe(
         sass({

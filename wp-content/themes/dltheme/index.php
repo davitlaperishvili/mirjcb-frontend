@@ -10,19 +10,20 @@
 
 <div class="dl_theme">
   <section class="custom_hero">
-    <div class="custom_cntainer">
-      <figure>
-        <img src="https://mirjcb.ru/image/images/hero.jpg" alt="">
-      </figure>
+    <figure>
+      <img src="https://mirjcb.ru/image/images/hero.jpg" alt="">
+    </figure>
+    <div class="custom_container">
       <div class="hero_content">
         <h1 class="page_title">Найдите запчасти для своей техники</h1>
         <div class="page_subtitle">По артикулу или названию</div>
         <div class="hero_search">
           <div class="search_toggle" style="display: block;">
-            <div id="searchbox">
+            <div id="search">
               <input type="text" name="search" oninput="setSearch(this)" value="" placeholder="Поиск среди 950 тысяч артикулов с актуальными наличием и ценами" class="form-control input-lg">
               <span class="input-group-btn">
-                <button type="button" class="btn btn-default btn-lg">Искать</button>
+                <span>Искать</span>
+                <button type="button" class="btn btn-default btn-lg"></button>
               </span>
             </div>
           </div>
@@ -30,7 +31,6 @@
       </div>
     </div>
   </section>
-  
   <section class="benefits">
     <div class="custom_container">
       <ul class="benefit_list">
@@ -184,7 +184,21 @@
           </div>
         </div>
         <div class="products_list owl-carousel">
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
+            <figure>
+              <img src="https://mirjcb.ru/image/images/product.png" alt="">
+            </figure>
+            <div class="product_content">
+              <h3 class="title">Втулка (JCB) 1209/0032</h3>
+              <div class="slug">Артикул: 1209/0032</div>
+              <div class="price">
+                <div class="new">650 ₽</div>
+                <div class="old">850 ₽</div>
+              </div>
+              <div class="buy_btn"><a href="#">Купить</a></div>
+            </div>
+          </div>
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -198,7 +212,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -212,7 +226,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -226,7 +240,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -240,7 +254,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -254,7 +268,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -268,7 +282,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -282,21 +296,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
-            <figure>
-              <img src="https://mirjcb.ru/image/images/product.png" alt="">
-            </figure>
-            <div class="product_content">
-              <h3 class="title">Втулка (JCB) 1209/0032</h3>
-              <div class="slug">Артикул: 1209/0032</div>
-              <div class="price">
-                <div class="new">650 ₽</div>
-                <div class="old">850 ₽</div>
-              </div>
-              <div class="buy_btn">Купить</div>
-            </div>
-          </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -327,7 +327,7 @@
           </div>
         </div>
         <div class="products_list owl-carousel">
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -341,7 +341,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -355,7 +355,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -369,7 +369,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -383,7 +383,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -397,7 +397,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -411,7 +411,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -425,7 +425,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -439,7 +439,7 @@
               <div class="buy_btn">Купить</div>
             </div>
           </div>
-          <div class="product_item owl-slide">
+          <div class="owl-slide">
             <figure>
               <img src="https://mirjcb.ru/image/images/product.png" alt="">
             </figure>
@@ -463,6 +463,23 @@
       <div class="section_title">
         <h2>Новые статьи</h2>
         <div class="blog_list owl-carousel">
+        
+          <div class="blog_item owl-item">
+            <figure>
+              <img src="https://mirjcb.ru/image/images/blog3.png" alt="">
+            </figure>
+            <div class="blog_content">
+              <div class="blog_top">
+                <div class="time">
+                  <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
+                  <div class="date">12.06.2023</div>
+                </div>
+                <div class="read_more"><a href="#">Читать далее...</a></div>
+              </div>
+              <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
+              <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
+            </div>
+          </div>
           <div class="blog_item owl-item">
             <figure>
               <img src="https://mirjcb.ru/image/images/blog1.png" alt="">
@@ -473,7 +490,7 @@
                   <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
                   <div class="date">12.06.2023</div>
                 </div>
-                <div class="read_more">Читать далее...</div>
+                <div class="read_more"><a href="#">Читать далее...</a></div>
               </div>
               <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
               <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
@@ -489,7 +506,7 @@
                   <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
                   <div class="date">12.06.2023</div>
                 </div>
-                <div class="read_more">Читать далее...</div>
+                <div class="read_more"><a href="#">Читать далее...</a></div>
               </div>
               <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
               <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
@@ -505,7 +522,7 @@
                   <img src="https://mirjcb.ru/image/images/calendar.png" alt="">
                   <div class="date">12.06.2023</div>
                 </div>
-                <div class="read_more">Читать далее...</div>
+                <div class="read_more"><a href="#">Читать далее...</a></div>
               </div>
               <div class="title">Эксплуатации Экскаватора-Погрузчика JCB</div>
               <div class="excerpt">Познакомьтесь с особенностями управления и устройством кабины экскаватора-погрузчика JCB. Добейтесь максимальной производительности!</div>
@@ -605,7 +622,6 @@
     </div>
   </section>
 </div>
-
 <script>
   $('.brands_slider').owlCarousel({
       items: 5,
@@ -630,7 +646,7 @@
       autoPlay: true         
   });
 
-  $('.product_list').owlCarousel({
+  $('.products_list').owlCarousel({
     items: 5,
     itemsDesktop : [1199,4], 
     itemsDesktopSmall : [991,3], 
@@ -641,6 +657,19 @@
     pagination: false,
     autoPlay: true         
   });
+
+  const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
+  customArrows.forEach( function (item) {
+    item.addEventListener("click", e => {
+      const target = e.target;
+      const parent = target.closest("section");
+      if(target.classList.contains("prev")){
+        parent.querySelector(".owl-prev").click();
+      }else if(target.classList.contains("next")){
+        parent.querySelector(".owl-next").click();
+      }
+    })
+  })
 </script>
 
 {{ footer }}

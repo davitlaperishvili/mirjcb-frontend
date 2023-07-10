@@ -1,0 +1,54 @@
+.dl_theme{
+  .custom_services{
+    .services_list{
+      @extend .no-list;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      @media(max-width: 768px){
+        grid-gap: 13px;
+        grid-template-columns: 1fr;
+      }
+      .service_item{
+        width: 100%;
+        padding: 20px 40px;
+        background-color: $cwhite;
+        box-shadow: $mainShadow;
+        @media(max-width: 768px){
+          padding: 20px 30px;
+        }
+        figure{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 90px;
+          height: 90px;
+          border: 2px solid #333333;
+          float: left;
+          margin-right: 20px;
+          @media(max-width: 768px){
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+          }
+          img{
+            @media(max-width: 768px){
+              width: 16px;
+            }
+
+          }
+        }
+        .title{
+          margin-bottom: 14px;
+          font-size: 18px;
+          font-weight: 700;
+        }
+        .value{
+          font-size: 15px;
+          color: $cbase;
+        }
+      }
+    }
+  }
+}
