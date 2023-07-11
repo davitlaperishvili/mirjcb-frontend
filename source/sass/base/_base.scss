@@ -137,6 +137,16 @@
         width: 100%;
         margin-top: 20px;
       }
+      a{
+        display: inline-block;
+        margin: 0 4px;
+        color: $cbase;
+        font-size: 15px;
+        transition: 0.4s;
+        &:hover{
+          color: $ccorp;
+        }
+      }
     }
   }
   

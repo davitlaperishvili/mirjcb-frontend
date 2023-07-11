@@ -9064,6 +9064,15 @@ p.product-price {
                   order: 3;
           width: 100%;
           margin-top: 20px; } }
+      .dl_theme .section_title .subtitle a {
+        display: inline-block;
+        margin: 0 4px;
+        color: #6C757D;
+        font-size: 15px;
+        -webkit-transition: 0.4s;
+        transition: 0.4s; }
+        .dl_theme .section_title .subtitle a:hover {
+          color: #F5AF00; }
   .dl_theme .custom_slider_arrows {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9778,7 +9787,7 @@ p.product-price {
         .dl_theme .custom_services .services_list .service_item figure img {
           width: 16px; } }
     .dl_theme .custom_services .services_list .service_item .title {
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       font-size: 18px;
       font-weight: 700;
       -webkit-transition: 0.4s;
@@ -9799,9 +9808,12 @@ p.product-price {
       -webkit-transition: 0.4s;
       transition: 0.4s; }
       .dl_theme .custom_services .services_list .service_item .value a {
+        display: inline-block;
+        margin: 0 4px;
         color: #6C757D;
         -webkit-transition: 0.4s;
-        transition: 0.4s; }
+        transition: 0.4s;
+        line-height: 30px; }
         .dl_theme .custom_services .services_list .service_item .value a:hover {
           color: #F5AF00; }
 

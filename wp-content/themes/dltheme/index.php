@@ -82,7 +82,7 @@
             <img src="https://mirjcb.ru/image/images/service1.svg" alt="">
           </figure>
           <div class="title">Запчасти гидравлики</div>
-          <div class="value">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam eius reiciendis sapiente voluptatem porro vel in magni doloribus ad nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, suscipit!</div>
+          <div class="value"><a href="">Быстроразъемные соединения (БРС)</a> <a href="">Гидравлические насосы</a> <a href="">Гидравлические патрубки </a> <a href="">Гидравлические распределители</a> <a href="">Гидравлические цилиндры</a> <a href="">Гидроаккумуляторы</a> <a href="">Клапаны</a> <a href="">Крышки гидробака </a> <a href="">Манжеты</a> <a href="">Поршни гидравлического цилиндра</a> <a href="">Элементы гидросистемы</a></div>
         </li>
         <li class="service_item">
           <figure>
