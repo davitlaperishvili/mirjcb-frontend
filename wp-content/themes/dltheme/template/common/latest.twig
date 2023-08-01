@@ -1,0 +1,31 @@
+  <section class="custom_blog mb-40" >
+    <div class="custom_container">
+      <div class="section_title">
+        <h2>Новые статьи</h2>
+        <div class="custom_slider_arrows">
+          <div class="prev arrow fa fa-light fa-chevron-left"></div>
+          <div class="next arrow fa fa-light fa-chevron-right"></div>
+        </div>
+      </div>
+      <div class="blog_list owl-carousel">
+        {% for blog in blogs %}
+            <div class="blog_item">
+                <figure>
+                    <img src="{{ blog.image }}" alt="{{ blog.title }}">
+                </figure>
+                <div class="blog_content">
+                    <div class="blog_top">
+                    <div class="time">
+                        <img src="https://mirjcb.ru/image/images/calendar.svg" alt="">
+                        <div class="date">{{ blog.date_added_full }}</div>
+                    </div>
+                    <div class="read_more"><a href="{{ blog.href }}">Читать далее...</a></div>
+                    </div>
+                    <div class="title">{{ blog.title }}</div>
+                    <div class="excerpt">{{ blog.short_description }}</div>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

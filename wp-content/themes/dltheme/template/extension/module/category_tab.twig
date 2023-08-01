@@ -1,4 +1,4 @@
-<div class="hometab box">
+{# <div class="hometab box">
 	<div class="container">
 		<div class="tab-head">
 			<div class="hometab-heading box-heading">{{ heading_title }}</div>
@@ -68,8 +68,6 @@
 												
 												<p class="bold-title"><a href="{{ product.href }} ">{{ product.name }} </a></p>
 												<p>Артикул: {{product.sku}}</p>
-
-													{# <p class="desc">{{ product.description }}</p> #}
 													
 													{% if product.price %}
 														<p class="price">
@@ -115,4 +113,54 @@
 
 <script type="text/javascript">
 	$('#categorytabs a').tabs();
-</script> 
+</script>  #}
+
+
+  <section class="custom_products tabs mb-40">
+    <div class="custom_container">
+      <div class="section_content">
+        <div class="section_title">
+          <h2>{{ heading_title }}</h2>
+          <div class="subtitle tab_items">
+		    {% set category_cnt = 0 %}
+		  	{% for category in categories %}
+				<a href="javascript:void(0)"  {% if category_cnt <= 0 %} class="is-active"{% endif %} data-tab="tab{{ category.category_id }}">{{ category.category_name }}</a> 
+				{% set category_cnt = category_cnt + 1 %}  
+			{% endfor %}
+          </div>
+          <div class="custom_slider_arrows ">
+            <div class="prev arrow fa fa-light fa-chevron-left"></div>
+            <div class="next arrow fa fa-light fa-chevron-right"></div>
+          </div>
+        </div>
+		{% set category_cnt = 0 %}
+		{% for category in categories %}
+			<div class="products_list owl-carousel tab_content {% if category_cnt <= 0 %}is-active{% endif %}" data-content="tab{{ category.category_id }}Content">
+				{% for product in category.products %}
+					<div style="cursor:pointer" class="owl-slide">
+						<figure onclick="window.location.href = '{{ product.href }}';">
+							<img src="{{ product.thumb }}" alt="">
+						</figure>
+						<div class="product_content">
+							<div onclick="window.location.href = '{{ product.href }}';" class="title">{{ product.name }}</div>
+							<div class="slug">Артикул: {{ product.sku }}</div>
+							<div class="price">
+								{% if product.price %}
+									{% if not product.special %}
+										<div class="new">{{ product.price }}</div>
+									{% else %}
+										<div class="new">{{ product.special }}</div> 
+										<div class="old">{{ product.price }}</div>
+									{% endif %}
+								{% endif %}
+							</div>
+							<div onclick="cart.add('{{ product.product_id }} ');" class="buy_btn"><a>Купить</a></div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% set category_cnt = category_cnt + 1 %}  
+		{% endfor %}
+      </div>
+    </div>
+  </section>

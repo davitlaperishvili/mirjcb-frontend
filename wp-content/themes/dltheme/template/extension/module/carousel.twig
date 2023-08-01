@@ -1,27 +1,21 @@
-<div id="carousel-{{ module }}" class="banners-slider-carousel box">
-	<div class="container">
-	<div class="box-heading">{{ heading_title }}</div>
-	<div class="carousel-block">
-		<div class="customNavigation">
-			<a class="brand-prev fa prev">&nbsp;</a>
-			<a class="brand-next fa next">&nbsp;</a>
-		</div>
-		<div class="brand-carousel" id="module-{{ module }}-carousel">
-			{% for banner in banners %}
-				<div class="slider-item">
-					<div class="product-block">
-						<div class="product-block-inner">
-							{% if banner.link %}
-							<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" /></a>
-							{% else %}
-							<img src="{{ banner.image }}" alt="{{ banner.title }}" />
-							{% endif %}
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
-  	</div>
-</div>
-<span class="module_default_width" style="display:none; visibility:hidden"></span>
+
+  <section class="custom_brands mb-60">
+    <div class="custom_container">
+      <div class="section_title">
+        <h2>Производители</h2>
+        <div class="custom_slider_arrows">
+          <div class="prev arrow fa fa-light fa-chevron-left"></div>
+          <div class="next arrow fa fa-light fa-chevron-right"></div>
+        </div>
+      </div>
+      <div class="brands_slider owl-carousel">
+	  	{% for banner in banners %}
+			<div class="owl-slide" {% if banner.link %} onclick="window.location.href = '{{ banner.link }}';" style="cursor:pointer"{% endif %}>
+				<figure>
+					<img src="{{ banner.image }}" alt="{{ banner.title }}">
+				</figure>
+			</div>
+		{% endfor %}
+      </div>
+    </div>
+  </section>

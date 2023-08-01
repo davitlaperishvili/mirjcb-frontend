@@ -1,0 +1,89 @@
+{% for banner in banners %}
+<section class="custom_hero mb-60">
+    <figure>
+      <img src="{{ banner.image }}" alt="">
+    </figure>
+    <div class="custom_container">
+      <div class="hero_content">
+        <div class="page_title">{{ banner.title }}</div>
+        <div class="page_subtitle">{{ banner.link }}</div>
+        <div class="hero_search">
+          <div id="search">
+            <input type="text" name="search" oninput="setSearch(this)" value="" class="dynamic_options_input" placeholder="Поиск среди 950 тысяч артикулов с актуальными наличием и ценами">
+            <div class="close_dynamic_options">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0.342639" y1="0.384028" x2="17.882" y2="16.8877" stroke="black"/>
+                <line x1="17.1434" y1="0.332182" x2="1.14336" y2="18.3322" stroke="black"/>
+              </svg>
+            </div>
+            <div class="dynamic_options">
+              <div class="options_group">
+                <div class="group_title">Категории</div>
+                <div class="group_items" id="categories">
+                  <ul>
+                    <li>
+                      <a href="#">Пальцы и втулки</a>
+                    </li>
+                    <li>
+                      <a href="#">Пальцы и втулки</a>
+                    </li>
+                    <li>
+                      <a href="#">Пальцы и втулки</a>
+                    </li>
+                    <li>
+                      <a href="#">Пальцы и втулки</a>
+                    </li>
+                    <li>
+                      <a href="#">Пальцы и втулки</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="options_group">
+                <div class="group_title">Товары</div>
+                <div class="group_items" id="products">
+                  <ul>
+                    <li>
+                      <a href="#">1208/0015 Втулка штока JCB</a>
+                    </li>
+                    <li>
+                      <a href="#">808/00296 Втулка передней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">808/00388 Втулка каретки</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                    <li>
+                      <a href="#">809/00126 Втулка задней стрелы</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <button type="submit">Искать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}

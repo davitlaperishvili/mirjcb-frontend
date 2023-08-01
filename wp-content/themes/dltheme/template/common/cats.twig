@@ -1,0 +1,19 @@
+<section class="custom_services mb-40">
+    <div class="custom_container">
+      <ul class="services_list">
+        {% for cat in categories %}
+            <li class="service_item">
+            <figure>
+                <img src="https://mirjcb.ru/image/{{ cat.image }}" alt="{{ cat.name }}">
+            </figure>
+            <div class="title"><h2><a href="{{ cat.href }}">{{ cat.name }}</a></h2></div>
+            <div class="value">
+                {% for sub in cat.subresult %}
+                    <a href="{{ sub.href }}">{{ sub.name }}</a>
+                {% endfor %}
+            </div>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
