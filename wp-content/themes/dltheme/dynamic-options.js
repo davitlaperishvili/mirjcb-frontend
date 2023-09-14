@@ -50,6 +50,10 @@ dynamicOptionsInputs.forEach((input) => {
       timer = setTimeout(async function () {
         const value = e.target.value;
         const parent = e.target.parentElement;
+        if (!value) {
+          parent.classList.remove("is-active");
+          return;
+        }
         const productSearch = await getSearchResult(
           `${productSearchURL}${value}`
         );
@@ -66,6 +70,13 @@ dynamicOptionsInputs.forEach((input) => {
         parent.classList.add("is-active");
       }, 400); // Delay in milliseconds
     } catch (e) {}
+  });
+  input.addEventListener("focus", function (e) {
+    if (window.innerWidth < 768) {
+      console.log("Focus Event");
+      const parent = e.target.parentElement;
+      parent.classList.add("is-active");
+    }
   });
 });
 

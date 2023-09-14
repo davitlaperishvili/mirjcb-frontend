@@ -63,6 +63,8 @@
               gap: 20px;
               margin: 0 !important;
               position: static;
+              width: 100%;
+              padding: 0 20px;
             }
             input{
               flex: 1;
@@ -70,14 +72,18 @@
               background-color: $cwhite;
               color: $cblack;
               border-radius: 2px;
+              font-size: 16px;
               &::placeholder{
                 color: #8F8F8F;
+              }
+              @media(max-width: 768px){
+                width: 100%;
               }
             }
             .dynamic_options{
               display: none;
               position: absolute;
-              top: 46px;
+              top: 44px;
               left: 0;
               width: calc(100% - 164px);
               max-height: 482px;
@@ -86,7 +92,8 @@
               padding: 40px;
               border-radius: 5px;
               @media(max-width: 768px){
-                max-height: 100vh;
+                max-height: calc(100vh - 114px);
+                height: calc(100vh - 114px);
                 width: 100%;
                 padding: 20px;
               }
@@ -142,7 +149,7 @@
                 transform: translateY(-50%) rotateZ(180deg);
               }
               @media(max-width: 768px){
-                right: 15px;
+                right: 105px;
                 top: 22px;
               }
             }
@@ -158,6 +165,7 @@
               transition: 0.4s;
               @media(max-width: 768px){
                 width: 100%;
+                transition: none;
               }
               &:hover{
                 background-color: $cblack;
@@ -174,7 +182,18 @@
                   position: absolute;
                   top: 0;
                   left: 0;
-                  width: 100%;
+                  padding-right: 130px;
+                  font-size: 16px;
+                }
+              }
+              button{
+                
+                @media(max-width: 768px){
+                  position: absolute;
+                  width: 80px;
+                  top: 8px;
+                  right: 15px;
+                  height: 30px;
                 }
               }
             }

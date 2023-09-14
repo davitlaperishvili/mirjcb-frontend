@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mirjcb.ru</title>
-  <link rel="stylesheet" href="scripts/css/main.css">
-</head>
-<body>
 {{ header }}
-
-<div class="dl_theme">
+<div class="dl_theme white">
   <div class="breadcrumbs_wrap">
     <ul class="breadcrumb">
       {% for breadcrumb in breadcrumbs %}
@@ -523,6 +513,18 @@
     autoPlay: true         
   });
 
+$("#additional-carousel").owlCarousel({
+    items: 5,
+    itemsDesktop : [1199,4], 
+    itemsDesktopSmall : [991,3], 
+    itemsTablet: [480,2], 
+    itemsMobile : [320,1],
+    singleItem: false,
+    navigation: true,
+    pagination: false,
+    autoPlay: false       
+  });
+
   const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
   customArrows.forEach( function (item) {
     item.addEventListener("click", e => {
@@ -536,7 +538,89 @@
     })
   })
 </script>
+<script>
+$(document).ready(function() {
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		}
+	});
+});
 
-{{ footer }}
-</body>
-</html>
+$(document).ready(function() {
+if ($(window).width() > 767) {
+		$("#tmzoom").elevateZoom({
+				
+				gallery:'additional-carousel',
+				//inner zoom				 
+								 
+				zoomType : "inner", 
+				cursor: "crosshair" 
+				
+				/*//tint
+				
+				tint:true, 
+				tintColour:'#F90', 
+				tintOpacity:0.5
+				
+				//lens zoom
+				
+				zoomType : "lens", 
+				lensShape : "round", 
+				lensSize : 200 
+				
+				//Mousewheel zoom
+				
+				scrollZoom : true*/
+				
+				
+			});
+		var z_index = 0;
+     			    		
+    $(document).on('click', '.thumbnail', function () {
+      $('.thumbnails').magnificPopup('open', z_index);
+      return false;
+    });
+
+    $('.additional-carousel a').click(function() {
+      var smallImage = $(this).attr('data-image');
+      var largeImage = $(this).attr('data-zoom-image');
+      var ez =   $('#tmzoom').data('elevateZoom');	
+      $('.thumbnail').attr('href', largeImage);  
+      ez.swaptheimage(smallImage, largeImage); 
+      z_index = $(this).index('#additional-carousel a');
+      return false;
+    });
+			
+	}else{
+		$(document).on('click', '.thumbnail', function () {
+		$('.thumbnails').magnificPopup('open', 0);
+		return false;
+		});
+	}
+});
+$(document).ready(function() {     
+	$('.thumbnails').magnificPopup({
+		delegate: 'a.elevatezoom-gallery',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-with-zoom',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+			titleSrc: function(item) {
+				return item.el.attr('title');
+			}
+		}
+	});
+});
+
+
+//--></script> 
+{{ footer }} 
