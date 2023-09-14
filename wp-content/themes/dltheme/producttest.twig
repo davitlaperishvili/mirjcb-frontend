@@ -1,4 +1,5 @@
 {{ header }}
+
 <div class="dl_theme white">
   <div class="breadcrumbs_wrap">
     <ul class="breadcrumb">
@@ -12,21 +13,9 @@
       <div class="product_main_info_wrap">
         <div class="product_title">Втулка гидроцилиндра ковша JCB 1211/0021</div>
         <div class="left product-image">
-          <!-- Codezeel Cloud-Zoom Image Effect Start -->
-          <div class="image">
-            <a class="thumbnail" href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png">
-              <img
-                  id="tmzoom"
-                  src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
-                  data-zoom-image="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
-                  title="Датчик указатель уровня топлива JCB 704/50098"
-                  alt="Датчик указатель уровня топлива JCB 704/50098"
-              />
-            </a>
-          </div>
-          <div class="additional-carousel_wrap">
-            <div id="additional-carousel" class="image-additional owl-carousel ">
-              <div class="slider-item owl-slide">
+          <div class="product_slider swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -45,7 +34,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -64,7 +53,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -83,7 +72,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -102,7 +91,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -121,7 +110,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -140,7 +129,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -159,7 +148,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -180,7 +169,17 @@
               </div>
             </div>
           </div>
-          <!-- Codezeel Cloud-Zoom Image Effect End-->
+          <div class="image">
+            <a class="thumbnail" href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png">
+              <img
+                  id="tmzoom"
+                  src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
+                  data-zoom-image="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
+                  title="Датчик указатель уровня топлива JCB 704/50098"
+                  alt="Датчик указатель уровня топлива JCB 704/50098"
+              />
+            </a>
+          </div>
         </div>
         <div class="product_content">
           <div class="info">
@@ -499,8 +498,8 @@
     </div>
   </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-
   $('.products_list').owlCarousel({
     items: 5,
     itemsDesktop : [1199,4], 
@@ -512,18 +511,13 @@
     pagination: false,
     autoPlay: true         
   });
-
-$("#additional-carousel").owlCarousel({
-    items: 5,
-    itemsDesktop : [1199,4], 
-    itemsDesktopSmall : [991,3], 
-    itemsTablet: [480,2], 
-    itemsMobile : [320,1],
-    singleItem: false,
-    navigation: true,
-    pagination: false,
-    autoPlay: false       
-  });
+$(document).ready(function() {
+  let mySwiper = new Swiper(".product_slider", {
+		slidesPerView: 4,
+    loop: true,
+    direction: "vertical"
+	});
+})
 
   const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
   customArrows.forEach( function (item) {

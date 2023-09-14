@@ -31,48 +31,36 @@ export const cleanPaths = (done) => {
 };
 
 export function styles() {
-  return (
-    gulp
-      .src("source/sass/stylesheet.scss")
-      .pipe(sourcemaps.init())
-      .pipe(
-        sass({
-          includePaths: [bourbon.includePaths],
-        })
-      )
-      .on("error", (error) => {
-        const errorMessage = `Path: ${error.relativePath} at line ${error.line}`;
-
-        notifier.notify({
-          title: "Error: Styles",
-          message: errorMessage,
-        });
-
-        gutil.log(
-          gutil.colors.red("[Styles]"),
-          gutil.colors.bgRed(errorMessage)
-        );
+  return gulp
+    .src("source/sass/stylesheet.scss")
+    .pipe(sourcemaps.init())
+    .pipe(
+      sass({
+        includePaths: [bourbon.includePaths],
       })
-      .pipe(autoprefixer(["last 15 versions"]))
-      // .pipe(
-      //   cleanCSS(
-      //     {
-      //       debag: true,
-      //       level: {
-      //         1: {
-      //           specialComments: 0,
-      //         },
-      //       },
-      //     },
-      //     (details) => {
-      //       console.log(`${details.name}: ${details.stats.originalSize}`);
-      //       console.log(`${details.name}: ${details.stats.minifiedSize}`);
-      //     }
-      //   )
-      // )
-      .pipe(sourcemaps.write("./"))
-      .pipe(gulp.dest(`wp-content/themes/${THEME_NAME}/scripts/css`))
-  );
+    )
+    .on("error", (error) => {
+      const errorMessage = `Path: ${error.relativePath} at line ${error.line}`;
+
+      notifier.notify({
+        title: "Error: Styles",
+        message: errorMessage,
+      });
+
+      gutil.log(gutil.colors.red("[Styles]"), gutil.colors.bgRed(errorMessage));
+    })
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(
+      cleanCSS({
+        level: {
+          1: {
+            specialComments: 0,
+          },
+        },
+      })
+    )
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest(`wp-content/themes/${THEME_NAME}/scripts/css`));
 }
 
 export function scripts(done) {

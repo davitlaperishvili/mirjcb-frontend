@@ -7,6 +7,10 @@
         padding: 20px 0;
       }
       .products_list{
+        .owl-wrapper{
+          display: flex !important;
+          align-items: self-end !important;
+        }
         .owl-slide{
           margin: 0 20px;
           figure{

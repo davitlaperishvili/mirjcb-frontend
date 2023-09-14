@@ -15,6 +15,9 @@
 	-ms-overflow-style: scrollbar;
 	-webkit-tap-highlight-color: rgba($cblack, 0);
   background-color: #F6F5F5;
+  &.white{
+    background-color: $cwhite;
+  }
   a{
     color: $ccorp;
     text-decoration: none;
