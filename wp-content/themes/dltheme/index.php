@@ -9,7 +9,7 @@
 <body>
 {{ header }}
 
-<div class="dl_theme">
+<div class="dl_theme white">
   <div class="breadcrumbs_wrap">
     <ul class="breadcrumb">
       {% for breadcrumb in breadcrumbs %}
@@ -21,22 +21,10 @@
     <div class="custom_container">
       <div class="product_main_info_wrap">
         <div class="product_title">Втулка гидроцилиндра ковша JCB 1211/0021</div>
-        <div class="left product-image">
-          <!-- Codezeel Cloud-Zoom Image Effect Start -->
-          <div class="image">
-            <a class="thumbnail" href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png">
-              <img
-                  id="tmzoom"
-                  src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
-                  data-zoom-image="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
-                  title="Датчик указатель уровня топлива JCB 704/50098"
-                  alt="Датчик указатель уровня топлива JCB 704/50098"
-              />
-            </a>
-          </div>
-          <div class="additional-carousel_wrap">
-            <div id="additional-carousel" class="image-additional owl-carousel ">
-              <div class="slider-item owl-slide">
+        <div class="left product-image thumbnails">
+          <div class="product_slider swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -55,7 +43,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -74,7 +62,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -93,7 +81,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -112,7 +100,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -131,7 +119,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -150,7 +138,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
@@ -169,7 +157,7 @@
                     </a>
                 </div>
               </div>
-              <div class="slider-item owl-slide">
+              <div class="swiper-slide">
                 <div class="product-block">
                     <a
                         href="https://mirjcb.ru/image/images/product.png"
@@ -190,7 +178,17 @@
               </div>
             </div>
           </div>
-          <!-- Codezeel Cloud-Zoom Image Effect End-->
+          <div class="image">
+            <a class="thumbnail" href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png">
+              <img
+                  id="tmzoom"
+                  src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
+                  data-zoom-image="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png"
+                  title="Датчик указатель уровня топлива JCB 704/50098"
+                  alt="Датчик указатель уровня топлива JCB 704/50098"
+              />
+            </a>
+          </div>
         </div>
         <div class="product_content">
           <div class="info">
@@ -509,33 +507,132 @@
     </div>
   </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 <script>
+  $(document).ready(function() {
+    $('.products_list').owlCarousel({
+      items: 5,
+      itemsDesktop : [1199,4], 
+      itemsDesktopSmall : [991,3], 
+      itemsTablet: [480,2], 
+      itemsMobile : [320,1],
+      singleItem: false,
+      navigation: true,
+      pagination: false,
+      autoPlay: true         
+    });
+    
+    let mySwiper = new Swiper(".product_slider", {
+      slidesPerView: 4,
+      loop: true,
+      direction: "vertical"
+    });
 
-  $('.products_list').owlCarousel({
-    items: 5,
-    itemsDesktop : [1199,4], 
-    itemsDesktopSmall : [991,3], 
-    itemsTablet: [480,2], 
-    itemsMobile : [320,1],
-    singleItem: false,
-    navigation: true,
-    pagination: false,
-    autoPlay: true         
-  });
-
-  const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
-  customArrows.forEach( function (item) {
-    item.addEventListener("click", e => {
-      const target = e.target;
-      const parent = target.closest("section");
-      if(target.classList.contains("prev")){
-        parent.querySelector(".owl-prev").click();
-      }else if(target.classList.contains("next")){
-        parent.querySelector(".owl-next").click();
-      }
+    const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
+    customArrows.forEach( function (item) {
+      item.addEventListener("click", e => {
+        const target = e.target;
+        const parent = target.closest("section");
+        if(target.classList.contains("prev")){
+          parent.querySelector(".owl-prev").click();
+        }else if(target.classList.contains("next")){
+          parent.querySelector(".owl-next").click();
+        }
+      })
     })
-  })
-</script>
+
+    // product slider image's zoom
+
+    const productSliderItems = $(".product_slider .product-block a");
+    productSliderItems.on("click", function (e) {
+      e.preventDefault();
+      const imageUrl = $(this).attr("href");
+      const imageElem = $(this).closest(".product_slider").next(".image");
+      const zoomLinkElem = imageElem.find("a");
+      const zoomImgElem = imageElem.find("img");
+      zoomLinkElem.attr("href", imageUrl);
+      zoomImgElem.attr("src", imageUrl);
+      zoomImgElem.attr("data-zoom-image", imageUrl);
+    })
+
+    $('.thumbnails').magnificPopup({
+      type:'image',
+      delegate: 'a',
+      gallery: {
+        enabled: true
+      }
+    });
+
+    if ($(window).width() > 767) {
+      $("#tmzoom").elevateZoom({
+          
+          gallery:'product_slider',
+          //inner zoom				 
+                  
+          zoomType : "inner", 
+          cursor: "crosshair" 
+          
+          /*//tint
+          
+          tint:true, 
+          tintColour:'#F90', 
+          tintOpacity:0.5
+          
+          //lens zoom
+          
+          zoomType : "lens", 
+          lensShape : "round", 
+          lensSize : 200 
+          
+          //Mousewheel zoom
+          
+          scrollZoom : true*/
+          
+          
+        });
+      var z_index = 0;
+                    
+      $(document).on('click', '.thumbnail', function () {
+        $('.thumbnails').magnificPopup('open', z_index);
+        return false;
+      });
+
+      $('.product_slider .product-block a').click(function() {
+        var smallImage = $(this).attr('data-image');
+        var largeImage = $(this).attr('data-zoom-image');
+        var ez =   $('#tmzoom').data('elevateZoom');	
+        $('.thumbnail').attr('href', largeImage);  
+        ez.swaptheimage(smallImage, largeImage); 
+        z_index = $(this).index('.product_slider .product-block a');
+        return false;
+      });
+        
+    }else{
+      $(document).on('click', '.thumbnail', function () {
+      $('.thumbnails').magnificPopup('open', 0);
+      return false;
+      });
+    }     
+    $('.thumbnails').magnificPopup({
+      delegate: 'a.elevatezoom-gallery',
+      type: 'image',
+      tLoading: 'Loading image #%curr%...',
+      mainClass: 'mfp-with-zoom',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        titleSrc: function(item) {
+          return item.el.attr('title');
+        }
+      }
+    });
+  });
+</script> 
 
 {{ footer }}
 </body>
