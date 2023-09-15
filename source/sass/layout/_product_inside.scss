@@ -18,6 +18,7 @@
         height: 500px;
         flex: 2;
         .image{
+          position: relative;
           height: 500px;
           border: 1px solid #808080;
           border-radius: 5px;
@@ -28,6 +29,19 @@
             height: 100%;
             img{
               height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          .zoom{
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            pointer-events: none;
+            z-index: 2;
+            i{
+              font-size: 32px;
+              color: #808080;
             }
           }
         }
@@ -330,6 +344,69 @@
               font-size: 14px;
               color: #001A34;
             }
+          }
+        }
+      }
+    }
+  }
+
+  section.product_description{
+    .section_tabs{
+      .tabs_content{
+        .tab_content{
+          .stars {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: center;
+            -webkit-justify-content: center;
+            position: relative;
+            margin-top: 5px;
+          }
+          
+          .star {
+            position: relative;
+            height: 50px;
+            width: 50px;
+            flex-shrink: 0;
+            cursor: pointer;
+          }
+          .star svg path{
+            fill: #dddddd;
+          }
+          .star svg{
+            width: 50px !important;
+            height: 50px !important;
+            fill: #dddddd;
+            transition: all 75ms ease-in-out;
+          }
+          
+          .star .left,
+          .star .right {
+            position: absolute;
+            width: 25px;
+            height: 50px;
+            top: 0;
+            overflow: hidden;
+          }
+          
+          .star .left {
+            left: 0;
+          }
+          
+          .star .right {
+            right: 0;
+          }
+          
+          .star-half.clicked > svg path {
+            fill: darken($ccorp, 5)!important;
+          }
+          
+          .star-half.hover > svg path {
+            fill: $ccorp;
+          }
+          
+          .star-half.hoverImportant > svg path {
+            fill: $ccorp!important;
           }
         }
       }
