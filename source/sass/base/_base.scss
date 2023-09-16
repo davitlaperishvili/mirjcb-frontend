@@ -42,7 +42,12 @@
     height: 400px;
   }
   // Map
- 
+ .container{
+  margin: 0 auto;
+  @media(max-width: 1024px){
+    padding: 0 15px;
+  }
+ }
   // Container
   div.custom_container{
     width: 1400px;
