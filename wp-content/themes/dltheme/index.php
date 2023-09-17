@@ -20,7 +20,7 @@
   <section class="product_main_info">
     <div class="container">
       <div class="product_main_info_wrap">
-        <div class="product_title">Втулка гидроцилиндра ковша JCB 1211/0021</div>
+        <h1 class="product_title">Втулка гидроцилиндра ковша JCB 1211/0021</h1>
         <div class="left product-image thumbnails">
           <div class="product_slider swiper">
             <div class="swiper-wrapper">
@@ -35,8 +35,7 @@
                     >
                         <img
                             src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
-                            width="95"
-                            height="118"
+                            
                             title="Датчик указатель уровня топлива JCB 704/50098"
                             alt="Датчик указатель уровня топлива JCB 704/50098"
                         />
@@ -54,8 +53,7 @@
                     >
                         <img
                             src="https://mirjcb.ru/image/cache//catalog/411-564x800.JPG"
-                            width="95"
-                            height="118"
+                            
                             title="Датчик указатель уровня топлива JCB 704/50098"
                             alt="Датчик указатель уровня топлива JCB 704/50098"
                         />
@@ -73,8 +71,7 @@
                     >
                         <img
                             src="https://mirjcb.ru/image/cache//catalog/411-564x800.JPG"
-                            width="95"
-                            height="118"
+                            
                             title="Датчик указатель уровня топлива JCB 704/50098"
                             alt="Датчик указатель уровня топлива JCB 704/50098"
                         />
@@ -92,8 +89,7 @@
                     >
                         <img
                             src="https://mirjcb.ru/image/cache/catalog/70450098-486x690.png"
-                            width="95"
-                            height="118"
+                            
                             title="Датчик указатель уровня топлива JCB 704/50098"
                             alt="Датчик указатель уровня топлива JCB 704/50098"
                         />
@@ -101,6 +97,7 @@
                 </div>
               </div>
             </div>
+            <div class="swiper-pagination"></div>
           </div>
           <div class="image">
             <a class="thumbnail" href="https://mirjcb.ru/image/cache/catalog/70450098-564x800.png">
@@ -267,9 +264,9 @@
       <div class="section_content">
         <div class="section_title">
           <h2>Похожие запчасти</h2>
-          <div class="slider_arrows">
-            <div class="prev arrow"></div>
-            <div class="next arrow"></div>
+          <div class="custom_slider_arrows" bis_skin_checked="1">
+            <div class="prev arrow fa fa-light fa-chevron-left" bis_skin_checked="1"></div>
+            <div class="next arrow fa fa-light fa-chevron-right" bis_skin_checked="1"></div>
           </div>
         </div>
         <div class="products_list owl-carousel">
@@ -637,8 +634,7 @@
       items: 5,
       itemsDesktop : [1199,4], 
       itemsDesktopSmall : [991,3], 
-      itemsTablet: [480,2], 
-      itemsMobile : [320,1],
+      itemsTablet: [480,1], 
       singleItem: false,
       navigation: true,
       pagination: false,
@@ -646,9 +642,18 @@
     });
     
     let mySwiper = new Swiper(".product_slider", {
-      slidesPerView: 6,
-      loop: true,
-      direction: "vertical"
+      slidesPerView: 1,
+      loop: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        1024: {
+          direction: "vertical",
+          slidesPerView: 6,
+        }
+      },
     });
 
     const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
@@ -697,6 +702,19 @@
 
       })
     })
+
+    if ($(window).width() < 580) {
+      tabs.forEach(function(tab, index) {
+        const tabText = tab.innerHTML;
+        const parent = tab.closest(".section_tabs");
+        parent.querySelectorAll(".tabs_content .tab_content")[index].insertAdjacentHTML("beforebegin", `
+          <div class="tabs visible">
+            <div class="tab">${tabText}</div>
+          </div>
+        `)
+      })
+    }
+
 
     $('.thumbnails').magnificPopup({
       type:'image',

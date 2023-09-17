@@ -255,9 +255,9 @@
       <div class="section_content">
         <div class="section_title">
           <h2>Похожие запчасти</h2>
-          <div class="custom_slider_arrows" bis_skin_checked="1">
-            <div class="prev arrow fa fa-light fa-chevron-left" bis_skin_checked="1"></div>
-            <div class="next arrow fa fa-light fa-chevron-right" bis_skin_checked="1"></div>
+          <div class="custom_slider_arrows">
+            <div class="prev arrow fa fa-light fa-chevron-left"></div>
+            <div class="next arrow fa fa-light fa-chevron-right"></div>
           </div>
         </div>
         <div class="products_list owl-carousel">
@@ -650,12 +650,21 @@
     const customArrows = document.querySelectorAll(".custom_slider_arrows .arrow");
     customArrows.forEach( function (item) {
       item.addEventListener("click", e => {
+        console.log("clicked")
         const target = e.target;
         const parent = target.closest("section");
-        if(target.classList.contains("prev")){
-          parent.querySelector(".owl-prev").click();
-        }else if(target.classList.contains("next")){
-          parent.querySelector(".owl-next").click();
+        if(parent.classList.contains("tabs")){
+          if(target.classList.contains("prev")){
+            $(parent.querySelector(".owl-carousel.is-active")).trigger('owl.prev');
+          }else if(target.classList.contains("next")){
+            $(parent.querySelector(".owl-carousel.is-active")).trigger('owl.next');
+          }
+        }else{
+          if(target.classList.contains("prev")){
+            $(parent.querySelector(".owl-carousel")).trigger('owl.prev');
+          }else if(target.classList.contains("next")){
+            $(parent.querySelector(".owl-carousel")).trigger('owl.next');
+          }
         }
       })
     })
