@@ -266,7 +266,8 @@
             margin-bottom: 15px;
             .theme_button{
               flex: auto;
-              a{
+              a,
+              button{
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -278,13 +279,15 @@
                 font-weight: 400;
                 text-transform: uppercase;
                 transition: 0.4s;
+                width: 100%;
+                cursor: pointer;
                 &:hover{
                   border-color: #262626;
                   color: #262626;
                 }
               }
               &.fill{
-                a{
+                a,button{
                   background-color: $ccorp;
                   color: $cblack;
                   &:hover{
@@ -312,7 +315,7 @@
               display: flex;
               align-items: center;
               gap: 5px;
-              span:not(.half){
+              span:not(.half):not(.gray){
                 svg{
                   path{
                     fill: #FFB800;
@@ -470,7 +473,6 @@
       }
     }
   }
-
   section.product_description{
     margin-bottom: 40px;
     @media(max-width: 580px){
@@ -650,24 +652,18 @@
                 .star .left,
                 .star .right {
                   position: absolute;
-                  width: 12px;
+                  width: 24px;
                   height: 24px;
                   top: 0;
                   overflow: hidden;
                 }
-                .star .left {
-                  left: 0;
-                }
-                .star .right {
-                  right: 0;
-                }
-                .star-half.clicked > svg path {
+                .right.clicked > svg path {
                   fill: darken($ccorp, 5)!important;
                 }
-                .star-half.hover > svg path {
+                .right.hover > svg path {
                   fill: $ccorp;
                 }
-                .star-half.hoverImportant > svg path {
+                .right.hoverImportant > svg path {
                   fill: $ccorp!important;
                 }
               }
