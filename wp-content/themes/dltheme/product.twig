@@ -15,19 +15,39 @@
         <div class="left product-image thumbnails">
           <div class="product_slider swiper">
             <div class="swiper-wrapper">
-              {% if images %}
                 {% for image in images %}
+                  {% if image.thumb %}
+                    <div class="swiper-slide">
+                      <div class="product-block">
+                          <a
+                              href="{{ image.thumb }}"
+                              title="{{ heading_title }}"
+                              class="elevatezoom-gallery"
+                              data-image="{{ image.popup }}"
+                              data-zoom-image="{{ image.thumb }}"
+                          >
+                              <img
+                                  src="{{ image.thumb }}"
+                                  
+                                  title="{{ heading_title }}"
+                                  alt="{{ heading_title }}"
+                              />
+                          </a>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
                   <div class="swiper-slide">
                     <div class="product-block">
                         <a
-                            href="{{ image.thumb }}"
+                            href="{{ thumb }}"
                             title="{{ heading_title }}"
                             class="elevatezoom-gallery"
-                            data-image="{{ image.popup }}"
-                            data-zoom-image="{{ image.thumb }}"
+                            data-image="{{ popup }}"
+                            data-zoom-image="{{ thumb }}"
                         >
                             <img
-                                src="{{ image.thumb }}"
+                                src="{{ thumb }}"
                                 
                                 title="{{ heading_title }}"
                                 alt="{{ heading_title }}"
@@ -35,13 +55,11 @@
                         </a>
                     </div>
                   </div>
-                {% endfor %}
-              {% endif %}
             </div>
             <div class="swiper-pagination"></div>
           </div>
           <div class="image">
-            <a class="thumbnail elevatezoom-gallery" href="{{ popup }}" data-image="{{ popup }}" data-zoom-image="{{ thumb }}">
+            <a class="thumbnail" href="{{ popup }}">
               <img
                   id="tmzoom"
                   src="{{ thumb }}"
@@ -72,14 +90,14 @@
               </ul>
             </div>
             <div class="middle_link">
-              <a href="./#product_desc" data-tab="tab1">{{ text_go_discription }}</a>
+              <a href="#product_desc" data-tab="tab1">{{ text_go_discription }}</a>
             </div>
             <div class="info_title">{{ text_delivery }}</div>
             <div class="info_list special">
               <ul>
-                <li>Краснодар: <span>1 день</span></li>
-                <li>Сочи: <span>3 дня</span></li>
-                <li>Ростов-на-Дону: <span>5 дней</span></li>
+                {% for delivery in delivery_city %}
+                  <li>{{ delivery.city_name }}: <span>{{ delivery.city_time }}</span></li>
+                {% endfor %}
               </ul>
             </div>
           </div>
@@ -105,11 +123,24 @@
                 <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
               </div>
               <div class="theme_button">
-                <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ buy_in_1_click }}</button>
+                <button onclick="klikaj('oneclick')" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ buy_in_1_click }}</button>
               </div>
             </div>
             <div class="additional_info">{{ text_additional_delivery }}</div>
           </div>
+          <div style="display: none" class ="popup-1-click" id="oneclick" >
+          <span onclick="close_klikaj('oneclick')" class="btn-cls-pp"><img src="/catalog/view/theme/Stanley/image/icons8-cross-64.png"/></span>
+            <h3>{{ text_buy_one_click }}</h3>
+              <div class="input-group">
+                <input type="text" name="telephone" value="" placeholder="{{ text_one_click_placeholder }}" id="input-payment-telephone" class="form-control">
+                <input type="hidden" name="product_id" value="{{ product_id }}">
+                <span class="input-group-btn">
+                  <button type="submit" id="button-oneclick" class="btn btn-primary">{{ text_one_click_button }}</button>
+                </span>
+              </div>
+              <span class="help-block">{{ text_discriprtion_one_click }}</span>	
+          </div>
+			    <script src="catalog/view/javascript/jquery.maskedinput.min.js" type="text/javascript"></script>
           <div class="reviews">
             <div class="reviews_top">
               <div class="stars">
@@ -160,7 +191,7 @@
               </div>
             </div>
             <div class="middle_link">
-              <a href="./#product_desc" data-tab="tab2">{{ text_go_reviews }}</a>
+              <a href="#product_desc" data-tab="tab2">{{ text_go_reviews }}</a>
             </div>
           </div>
         </div>
@@ -170,9 +201,11 @@
   <section class="product_additional_info">
     <div class="container">
       <div class="block_wrap">
-        <figure>
-          <img src="{{ manufacturer_image }}" alt="{{ manufacturer }}">
-        </figure>
+        {% if manufacturer_image %}
+          <figure>
+            <img src="{{ manufacturer_image }}" alt="{{ manufacturer }}">
+          </figure>
+        {% endif %}
         <div class="block_info">
           <div class="info_list">
             <ul>
@@ -588,16 +621,27 @@
     const middle_links = document.querySelectorAll(".middle_link a");
     middle_links.forEach(function(link) {
       link.addEventListener( "click", function (e) {
+        e.preventDefault();
         const target = e.target;
+        const targetHref = target.getAttribute("href");
+        const scrollTarget = document.querySelector(targetHref);
+        if (scrollTarget) {
+          const elemCoords = scrollTarget.getBoundingClientRect();
+          window.scroll({
+            top: elemCoords.top - 100,
+            behavior: "smooth",
+          });
+        }
+        
         const tabContent = target.dataset.tab;
         tabsContent.forEach( function (item) {
-          item.classList.remove(".is-active")
+          item.classList.remove("is-active")
         })
         tabs.forEach( function (item) {
-          item.classList.remove(".is-active")
+          item.classList.remove("is-active")
         })
-        document.querySelector(`.tab_content[data-content="${tabContent}content"]`).add(".is-active")
-        document.querySelector(`.tab_content[data-ტაბ="${tabContent}"]`).add(".is-active")
+        document.querySelector(`.tab_content[data-content="${tabContent}content"]`).classList.add("is-active")
+        document.querySelector(`.tab[data-tab="${tabContent}"]`).classList.add("is-active")
       })
     })
 
@@ -624,7 +668,7 @@
     if ($(window).width() > 767) {
       $("#tmzoom").elevateZoom({
           
-          gallery:'thumbnails',
+          gallery:'product_slider',
           //inner zoom				 
                   
           zoomType : "inner", 
@@ -689,5 +733,62 @@
       }
     });
   });
-</script> 
+</script>
+<script type="text/javascript">
+                $(document).ready(function() {
+					$("#input-payment-telephone").mask("{{ text_one_click_mask }}",{placeholder:" "});
+				});
+</script>
+
+<script type="text/javascript"><!--
+			$('#button-oneclick').on('click', function() {
+				$.ajax({
+					url: 'index.php?route=checkout/one_click/add',
+					type: 'post',
+					data: $('#oneclick input[type=\'text\'], #oneclick input[type=\'hidden\']'),
+					dataType: 'json',
+					beforeSend: function() {
+						$('#button-oneclick').button('loading');
+					},
+					complete: function() {
+						$('#button-oneclick').button('reset');
+					},
+					success: function(json) {
+						$('.alert, .text-danger').remove();
+						$('.form-group').removeClass('has-error');
+
+						if (json['error']) {
+							if (json['error']['telephone']) {
+								$('.breadcrumb').after('<div class="alert alert-danger text-danger">' + json['error']['telephone'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+								$('html, body').animate({ scrollTop: 0 }, 'slow');
+							}
+							if (json['error']['product']) {
+								$('.breadcrumb').after('<div class="alert alert-danger text-danger">' + json['error']['product'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+								$('html, body').animate({ scrollTop: 0 }, 'slow');
+							}
+							if (json['error']['order']) {
+								$('.breadcrumb').after('<div class="alert alert-danger text-danger">' + json['error']['order'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+								$('html, body').animate({ scrollTop: 0 }, 'slow');
+							}
+						}
+
+						if (json['success']) {
+							$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+							$('html, body').animate({ scrollTop: 0 }, 'slow');
+						}
+					},
+			        error: function(xhr, ajaxOptions, thrownError) {
+			            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			        }
+				});
+			});
+</script>
+<script type="text/javascript">
+  function klikaj(i) {
+    document.getElementById(i).style.display='block';
+  };
+  function close_klikaj(i) {
+    document.getElementById(i).style.display='none';
+  };
+</script>
 {{ footer }} 

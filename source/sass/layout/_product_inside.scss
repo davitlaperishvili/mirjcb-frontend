@@ -285,6 +285,11 @@
                   border-color: #262626;
                   color: #262626;
                 }
+                &:focus{
+                  border-color: #262626;
+                  background-color: #262626;
+                  color: $cwhite;
+                }
               }
               &.fill{
                 a,button{
